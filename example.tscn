@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://chyxqtqva3avg"]
+
+[ext_resource type="PackedScene" uid="uid://chs3m21mu4dxj" path="res://firefly-grove-puzzle-system/scenes/WildlifeSlot.tscn" id="1_a77ls"]
+[ext_resource type="Script" uid="uid://clxkj3llfvb0l" path="res://firefly-grove-puzzle-system/inventory1.gd" id="1_mij3m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mij3m"]
+bg_color = Color(0.43466252, 0.30991343, 0.21771893, 1)
+
+[node name="Example" type="Node2D" unique_id=1851213236]
+
+[node name="Inventory" type="CanvasLayer" parent="." unique_id=614257888]
+script = ExtResource("1_mij3m")
+
+[node name="Panel" type="Panel" parent="Inventory" unique_id=1890694965]
+visible = false
+offset_left = -1.0
+offset_top = 509.0
+offset_right = 1154.0
+offset_bottom = 645.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mij3m")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory/Panel" unique_id=377518485]
+custom_minimum_size = Vector2(950, 0)
+layout_mode = 0
+offset_left = 182.0
+offset_top = 19.0
+offset_right = 1132.0
+offset_bottom = 119.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/Panel/ScrollContainer" unique_id=2081701298]
+layout_mode = 2
+
+[node name="WildlifeSlot" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=951987194 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="WildlifeSlot2" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=1490684973 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="WildlifeSlot3" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=1967874080 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="WildlifeSlot4" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=2014938469 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="WildlifeSlot5" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=1636381719 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="WildlifeSlot6" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=1840088134 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="WildlifeSlot9" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=480604520 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="WildlifeSlot10" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=1728735615 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="WildlifeSlot7" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=207497760 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="WildlifeSlot8" parent="Inventory/Panel/ScrollContainer/HBoxContainer" unique_id=1893067295 instance=ExtResource("1_a77ls")]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Inventory/Panel" unique_id=221725685]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 18.0
+offset_right = 158.0
+offset_bottom = 117.0
+text = "Toggle"
+
+[node name="OpenButton" type="Button" parent="Inventory" unique_id=1355837661]
+offset_left = 49.0
+offset_top = 613.0
+offset_right = 129.0
+offset_bottom = 644.0
+text = "^"
+
+[connection signal="pressed" from="Inventory/Panel/CloseButton" to="Inventory" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Inventory/OpenButton" to="Inventory" method="_on_button_pressed"]

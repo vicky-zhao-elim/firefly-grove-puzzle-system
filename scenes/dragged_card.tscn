@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c8vaviv20xgbw"]
+
+[ext_resource type="Texture2D" uid="uid://bo2vk2y3lj0iq" path="res://icon.svg" id="1_4w6we"]
+[ext_resource type="Script" uid="uid://rma0048ushp0" path="res://firefly-grove-puzzle-system/scenes/dragged_card.gd" id="1_bxchh"]
+
+[node name="DraggedCard" type="Node2D" unique_id=1320845674]
+z_index = 100
+script = ExtResource("1_bxchh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=269156700]
+texture = ExtResource("1_4w6we")
