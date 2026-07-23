@@ -1,5 +1,7 @@
 extends Node2D
 
+var wildlife_name : String
+
 var prev_mouse_pos: Vector2 = Vector2.ZERO
 const skew_speed := 0.005
 const scale_speed := 0.05
@@ -12,6 +14,7 @@ func _process(delta: float) -> void:
 	if(is_queued_for_deletion()): return
 	
 	if(GlobalSelected.is_hovering_on_placement_slot == true):
+		print("B")
 		scale.x = move_toward(scale.x, 1.1, scale_speed / 2)
 		scale.y = move_toward(scale.y, 1.1, scale_speed / 2)
 	else:

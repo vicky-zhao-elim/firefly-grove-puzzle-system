@@ -7,11 +7,8 @@ func _ready() -> void:
 	for child in %InventorySlots.get_children():
 		child.picked_up_card.connect(add_picked_up_card)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func add_picked_up_card() -> void:
+func add_picked_up_card(card_name : String) -> void:
 	var new_dragged_scene = dragged_scene.instantiate()
-	add_child(new_dragged_scene)
+	new_dragged_scene.wildlife_name = card_name
+	GlobalSelected.current_selected_item = card_name
+	%Inventory.add_child(new_dragged_scene)

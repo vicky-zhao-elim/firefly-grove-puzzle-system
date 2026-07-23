@@ -12,6 +12,7 @@ bg_color = Color(0.43466252, 0.30991343, 0.21771893, 1)
 script = ExtResource("1_usug1")
 
 [node name="Inventory" type="CanvasLayer" parent="." unique_id=614257888]
+unique_name_in_owner = true
 script = ExtResource("1_mij3m")
 
 [node name="Panel" type="Panel" parent="Inventory" unique_id=1890694965]
@@ -35,33 +36,43 @@ layout_mode = 2
 
 [node name="WildlifeSlot" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=951987194 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "a"
 
 [node name="WildlifeSlot2" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1490684973 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "b"
 
 [node name="WildlifeSlot3" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1967874080 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "c"
 
 [node name="WildlifeSlot4" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=2014938469 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "d"
 
 [node name="WildlifeSlot5" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1636381719 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "e"
 
 [node name="WildlifeSlot6" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1840088134 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "f"
 
 [node name="WildlifeSlot9" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=480604520 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "g"
 
 [node name="WildlifeSlot10" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1728735615 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "h"
 
 [node name="WildlifeSlot7" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=207497760 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "i"
 
 [node name="WildlifeSlot8" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1893067295 instance=ExtResource("1_a77ls")]
 layout_mode = 2
+wildlife_name = "j"
 
 [node name="CloseButton" type="Button" parent="Inventory/Panel" unique_id=221725685]
 layout_mode = 0
@@ -83,6 +94,12 @@ text = "^"
 
 [node name="WildlifePlacementSlot" parent="World" unique_id=962582458 instance=ExtResource("3_d1qae")]
 position = Vector2(573, 238)
+
+[node name="WildlifePlacementSlot2" parent="World" unique_id=1450722339 instance=ExtResource("3_d1qae")]
+position = Vector2(452, 232)
+
+[node name="WildlifePlacementSlot3" parent="World" unique_id=784154850 instance=ExtResource("3_d1qae")]
+position = Vector2(672, 224)
 
 [connection signal="pressed" from="Inventory/Panel/CloseButton" to="Inventory" method="_on_close_button_pressed"]
 [connection signal="pressed" from="Inventory/OpenButton" to="Inventory" method="_on_button_pressed"]
