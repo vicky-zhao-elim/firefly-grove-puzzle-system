@@ -1,21 +1,18 @@
 extends Control
 
-var is_mouse_in_slot : int = 0
+signal picked_up_card
 
-@onready var dragged_scene = preload("res://firefly-grove-puzzle-system/scenes/dragged_card.tscn")
+var is_mouse_in_slot : int = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(is_mouse_in_slot == 1):
-		if(Input.is_action_pressed("click")):
-			var new_dragged_scene = dragged_scene.instantiate()
-			get_parent().get_parent().get_parent().get_parent().get_parent().add_child(new_dragged_scene)
+		if(Input.is_action_just_pressed("click")):
+			picked_up_card.emit()
 
 
 func _on_texture_rect_mouse_entered() -> void:
 	is_mouse_in_slot += 1
-
-
 
 func _on_texture_rect_mouse_exited() -> void:
 	is_mouse_in_slot -= 1

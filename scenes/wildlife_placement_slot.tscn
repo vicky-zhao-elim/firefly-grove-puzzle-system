@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dbnhlqctw5ofe"]
+
+[ext_resource type="Script" uid="uid://lgbltc66suve" path="res://firefly-grove-puzzle-system/scenes/wildlife_placement_slot.gd" id="1_no7kj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+radius = 27.073973
+
+[node name="WildlifePlacementSlot" type="Node2D" unique_id=962582458]
+script = ExtResource("1_no7kj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1294923881]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1184281924]
+shape = SubResource("CircleShape2D_1vivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1488781279]
+
+[node name="temp_label" type="Label" parent="." unique_id=1316455122]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "temp"
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
