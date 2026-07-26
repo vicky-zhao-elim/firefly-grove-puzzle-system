@@ -24,6 +24,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mij3m")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Inventory/Panel" unique_id=377518485]
 custom_minimum_size = Vector2(950, 0)
+clip_contents = false
 layout_mode = 0
 offset_left = 182.0
 offset_top = 19.0

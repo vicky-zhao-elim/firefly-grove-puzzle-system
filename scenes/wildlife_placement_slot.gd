@@ -10,19 +10,18 @@ var mouse_in_slot : int = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if(mouse_in_slot > 0):
-		GlobalSelected.is_hovering_on_placement_slot = true
-		print("A")
 		if(Input.is_action_just_released("click")):
 			$temp_label.text = GlobalSelected.current_selected_item
-	else:
-		GlobalSelected.is_hovering_on_placement_slot = false
+			update_visuals()
 
 func update_visuals() -> void:
 	pass
 
 func _on_area_2d_mouse_entered() -> void:
 	mouse_in_slot += 1
+	GlobalSelected.is_hovering_on_placement_slot = true
 
 
 func _on_area_2d_mouse_exited() -> void:
 	mouse_in_slot -= 1
+	GlobalSelected.is_hovering_on_placement_slot = false
