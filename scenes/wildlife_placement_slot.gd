@@ -13,8 +13,12 @@ func _process(_delta: float) -> void:
 		if(Input.is_action_just_released("click")):
 			$temp_label.text = GlobalSelected.current_selected_item
 			update_visuals()
+			update_slot_data(GlobalSelected.current_selected_item)
 
 func update_visuals() -> void:
+	pass
+
+func update_slot_data(dragged_item : String) -> void:
 	pass
 
 func _on_area_2d_mouse_entered() -> void:

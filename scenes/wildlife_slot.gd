@@ -3,10 +3,14 @@ extends Control
 signal picked_up_card
 
 @export var wildlife_name : String
+@export var card_texture : Texture2D
 
 var is_mouse_in_slot : int = 0
 
 const rotation_speed := 1.5
+
+func _ready() -> void:
+	$TextureRect.texture = card_texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -15,7 +19,6 @@ func _process(_delta: float) -> void:
 		$TextureRect.rotation_degrees = move_toward($TextureRect.rotation_degrees, -5, rotation_speed)
 		if(Input.is_action_just_pressed("click")):
 			picked_up_card.emit(wildlife_name)
-			# WHile the mouse is int he slot and the card is picked up, increase the slot image size
 	else:
 		self.modulate = Color.WHITE
 		$TextureRect.rotation_degrees = move_toward($TextureRect.rotation_degrees, 0, rotation_speed)

@@ -16,9 +16,9 @@ unique_name_in_owner = true
 script = ExtResource("1_mij3m")
 
 [node name="Panel" type="Panel" parent="Inventory" unique_id=1890694965]
-offset_left = -1.0
+unique_name_in_owner = true
 offset_top = 509.0
-offset_right = 1154.0
+offset_right = 1155.0
 offset_bottom = 645.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mij3m")
 
@@ -30,6 +30,7 @@ offset_left = 182.0
 offset_top = 19.0
 offset_right = 1132.0
 offset_bottom = 119.0
+vertical_scroll_mode = 0
 
 [node name="InventorySlots" type="HBoxContainer" parent="Inventory/Panel/ScrollContainer" unique_id=2081701298]
 unique_name_in_owner = true
@@ -75,11 +76,18 @@ wildlife_name = "i"
 layout_mode = 2
 wildlife_name = "j"
 
-[node name="CloseButton" type="Button" parent="Inventory/Panel" unique_id=221725685]
+[node name="CoveringPanel" type="Panel" parent="Inventory" unique_id=368313755]
+offset_top = 509.0
+offset_right = 178.0
+offset_bottom = 644.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mij3m")
+
+[node name="CloseButton" type="Button" parent="Inventory/CoveringPanel" unique_id=221725685]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 23.0
+offset_left = 22.0
 offset_top = 18.0
-offset_right = 158.0
+offset_right = 157.0
 offset_bottom = 117.0
 text = "Toggle"
 
@@ -102,5 +110,5 @@ position = Vector2(452, 232)
 [node name="WildlifePlacementSlot3" parent="World" unique_id=784154850 instance=ExtResource("3_d1qae")]
 position = Vector2(672, 224)
 
-[connection signal="pressed" from="Inventory/Panel/CloseButton" to="Inventory" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Inventory/CoveringPanel/CloseButton" to="Inventory" method="_on_close_button_pressed"]
 [connection signal="pressed" from="Inventory/OpenButton" to="Inventory" method="_on_button_pressed"]

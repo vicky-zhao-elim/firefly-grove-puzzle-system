@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bntmv6tbmwit5" path="res://firefly-grove-puzzle-system/scenes/wildlife_slot.gd" id="1_beuea"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73qan"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
-
 [node name="WildlifeSlot" type="Control" unique_id=951987194]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
@@ -15,7 +12,6 @@ script = ExtResource("1_beuea")
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
-texture = SubResource("CompressedTexture2D_73qan")
 expand_mode = 1
 
 [connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]
