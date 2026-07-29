@@ -8,38 +8,49 @@ const skew_speed := 0.005
 const scale_speed := 0.05
 const rotation_speed := 1.5
 
+var disabled_self : bool = false
+
 func _ready() -> void:
 	global_position = get_global_mouse_position()
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if(is_queued_for_deletion()): return
+	if(disabled_self == true): return
 	
+	# If hovering over a valid slot, do a small animation and decrease the opacity
 	if(GlobalSelected.is_hovering_on_placement_slot == true):
 		scale.x = move_toward(scale.x, 0.8, scale_speed / 2)
 		scale.y = move_toward(scale.y, 0.8, scale_speed / 2)
 		rotation_degrees = move_toward(rotation_degrees, 1, rotation_speed)
 		modulate = Color(0.675, 0.675, 0.675, 0.75)
+	# Else, return to normal
 	else:
 		scale.x = move_toward(scale.x, 1.0, scale_speed / 2)
 		scale.y = move_toward(scale.y, 1.0, scale_speed / 2)
 		rotation_degrees = move_toward(rotation_degrees, 0, rotation_speed)
 		modulate = Color.WHITE
 		
+	# When the player lets go of the mouse
 	if(Input.is_action_just_released("click")):
 		# Do stuff
-		queue_free()
+		disabled_self = true
+		# Release animation if over valid slot
+		if(GlobalSelected.is_hovering_on_placement_slot == true):
+			var tween = get_tree().create_tween()
+			tween.tween_property(self, "scale", Vector2(1.005, 1.005), 0.05)
+			tween.tween_property(self, "scale", Vector2(0.5, 0.5), 0.15)
+			tween.tween_callback(queue_free)
+		else:
+			queue_free()
+	# Movement animation
 	else:
 		global_position = get_global_mouse_position()
-		var x_pos_offset = (global_position - prev_mouse_pos).x
-		@warning_ignore("narrowing_conversion")
-		var direction_x : int = signf(x_pos_offset)
-		@warning_ignore("narrowing_conversion")
-		var direction_y : int = signf((global_position - prev_mouse_pos).y)
-		# Add pixel different to account for speed
+		var x_pos_offset = (global_position - prev_mouse_pos).x 
+		x_pos_offset /= 8
+		clamp(x_pos_offset, -10, 10)
+		var y_pos_offset = (global_position - prev_mouse_pos).y
+		clamp(y_pos_offset, -90, 90)
 		prev_mouse_pos = global_position
-		skew = move_toward(skew, deg_to_rad(12) * direction_x, skew_speed)
-
-func _physics_process(delta: float) -> void:
-	pass
+		skew = move_toward(skew, deg_to_rad(x_pos_offset), skew_speed)
+		rotation_degrees = move_toward(rotation_degrees, y_pos_offset, rotation_speed)
