@@ -6,9 +6,13 @@ extends Node2D
 func _ready() -> void:
 	for child in %InventorySlots.get_children():
 		child.picked_up_card.connect(add_picked_up_card)
+	$Inventory/Panel/RemoveWildlifeSlot.picked_up_card.connect(add_picked_up_card)
 
-func add_picked_up_card(card_name : String) -> void:
+## If a card has been picked up (signal from wildlife_slot), add the scene for a dragged card.
+func add_picked_up_card(card_name : String, card_id : int) -> void:
 	var new_dragged_scene = dragged_scene.instantiate()
 	new_dragged_scene.wildlife_name = card_name
+	new_dragged_scene.wildlife_id = card_id
 	GlobalSelected.current_selected_item = card_name
+	GlobalSelected.current_selected_item_id = card_id
 	%Inventory.add_child(new_dragged_scene)

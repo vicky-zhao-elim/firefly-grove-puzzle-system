@@ -1,5 +1,6 @@
 extends Node2D
 
+var wildlife_id : int
 var wildlife_name : String
 
 var prev_mouse_pos: Vector2 = Vector2.ZERO
@@ -31,11 +32,12 @@ func _process(_delta: float) -> void:
 		rotation_degrees = move_toward(rotation_degrees, 0, rotation_speed)
 		modulate = Color.WHITE
 		
-	# When the player lets go of the mouse
+	# When the player lets go of the mouse, play an animation depending on where it was released
 	if(Input.is_action_just_released("click")):
-		# Do stuff
+		# Prevent this scene from doing anything in process so it does not move after you release it,
+		# but still plays the animation.
 		disabled_self = true
-		# Release animation if over valid slot
+		# Play a release animation if card is over a valid slot
 		if(GlobalSelected.is_hovering_on_placement_slot == true):
 			var tween = get_tree().create_tween()
 			tween.tween_property(self, "scale", Vector2(1.005, 1.005), 0.05)
@@ -43,7 +45,7 @@ func _process(_delta: float) -> void:
 			tween.tween_callback(queue_free)
 		else:
 			queue_free()
-	# Movement animation
+	# Movement animation if the card has not been released yet
 	else:
 		global_position = get_global_mouse_position()
 		var x_pos_offset = (global_position - prev_mouse_pos).x 

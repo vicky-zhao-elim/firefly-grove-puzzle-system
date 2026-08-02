@@ -20,6 +20,8 @@ texture = SubResource("CompressedTexture2D_no7kj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1184281924]
 shape = SubResource("CircleShape2D_1vivr")
 
+[node name="ItemSprite" type="Sprite2D" parent="." unique_id=846325227]
+
 [node name="temp_label" type="Label" parent="." unique_id=1316455122]
 offset_right = 40.0
 offset_bottom = 23.0

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://clxkj3llfvb0l" path="res://firefly-grove-puzzle-system/inventory1.gd" id="1_mij3m"]
 [ext_resource type="Script" uid="uid://bhcpsrggpggvn" path="res://firefly-grove-puzzle-system/main.gd" id="1_usug1"]
 [ext_resource type="PackedScene" uid="uid://dbnhlqctw5ofe" path="res://firefly-grove-puzzle-system/scenes/wildlife_placement_slot.tscn" id="3_d1qae"]
+[ext_resource type="Texture2D" uid="uid://bo2vk2y3lj0iq" path="res://icon.svg" id="4_l3sb5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mij3m"]
 bg_color = Color(0.43466252, 0.30991343, 0.21771893, 1)
@@ -22,6 +23,15 @@ offset_right = 1155.0
 offset_bottom = 645.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mij3m")
 
+[node name="RemoveWildlifeSlot" parent="Inventory/Panel" unique_id=951987194 instance=ExtResource("1_a77ls")]
+layout_mode = 0
+offset_left = 325.0
+offset_top = -153.0
+offset_right = 425.0
+offset_bottom = -53.0
+wildlife_name = "Remove"
+card_texture = ExtResource("4_l3sb5")
+
 [node name="ScrollContainer" type="ScrollContainer" parent="Inventory/Panel" unique_id=377518485]
 custom_minimum_size = Vector2(950, 0)
 clip_contents = false
@@ -36,7 +46,7 @@ vertical_scroll_mode = 0
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="WildlifeSlot" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=951987194 instance=ExtResource("1_a77ls")]
+[node name="WildlifeSlot" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=381092288 instance=ExtResource("1_a77ls")]
 layout_mode = 2
 wildlife_name = "a"
 
@@ -101,14 +111,20 @@ text = "^"
 
 [node name="World" type="Node2D" parent="." unique_id=1736146529]
 
-[node name="WildlifePlacementSlot" parent="World" unique_id=962582458 instance=ExtResource("3_d1qae")]
+[node name="WildlifePlacementSlot" parent="World" unique_id=962582458 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(573, 238)
+neighbours = [NodePath("../WildlifePlacementSlot2"), NodePath("../WildlifePlacementSlot3")]
 
-[node name="WildlifePlacementSlot2" parent="World" unique_id=1450722339 instance=ExtResource("3_d1qae")]
+[node name="WildlifePlacementSlot2" parent="World" unique_id=1450722339 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(452, 232)
+neighbours = [NodePath("../WildlifePlacementSlot")]
 
-[node name="WildlifePlacementSlot3" parent="World" unique_id=784154850 instance=ExtResource("3_d1qae")]
+[node name="WildlifePlacementSlot3" parent="World" unique_id=784154850 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(672, 224)
+neighbours = [NodePath("../WildlifePlacementSlot")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=288263931]
+texture = ExtResource("4_l3sb5")
 
 [connection signal="pressed" from="Inventory/CoveringPanel/CloseButton" to="Inventory" method="_on_close_button_pressed"]
 [connection signal="pressed" from="Inventory/OpenButton" to="Inventory" method="_on_button_pressed"]

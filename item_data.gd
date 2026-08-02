@@ -9,9 +9,9 @@ enum ItemEffect{
 }
 
 var all_items : Array[Array] = [
-	# (Index implied), Name, sprite, unlocked?, has effect? => Array[effect type, effect strength]
-	["One", load("res://icon.svg"), true, false],
-	["Two", load("res://icon.svg"), false, false],
-	["Three", load("res://icon.svg"), true, false],
-	["Four", load("res://icon.svg"), false, false],
+	# (Index implied), Name, sprite (one for each type - change to include dead ones?), unlocked?, has effect? => Array[effect type, effect strength]
+	["One", [load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg")], true, false],
+	["Two", [load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg")], false, false],
+	["Three", [load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg")], true, true, ["sun", 1]],
+	["Four", [load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg")], false, false],
 ]

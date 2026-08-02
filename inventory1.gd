@@ -3,7 +3,6 @@ extends CanvasLayer
 var card_scene : PackedScene = preload("res://firefly-grove-puzzle-system/scenes/wildlife_card_slot.tscn")
 
 func _ready() -> void:
-	
 	# Change window size to test
 	
 	var screen_size : Vector2 = get_viewport().get_visible_rect().size
@@ -12,15 +11,15 @@ func _ready() -> void:
 	$CoveringPanel.size.y = %Panel.size.y
 	$CoveringPanel.position.y = %Panel.position.y
 	
-	##
-	
 	for child in %InventorySlots.get_children():
 		child.queue_free()
 		
-	for item : Array in ItemData.all_items:
+	for i in range(ItemData.all_items.size()):
+		var item : Array = ItemData.all_items[i]
 		var new_card = card_scene.instantiate()
 		new_card.wildlife_name = item[ItemData.NAME]
-		new_card.card_texture = item[ItemData.SPRITE]
+		new_card.wildlife_id = i
+		new_card.card_texture = item[ItemData.SPRITE][0]
 		if(item[ItemData.IS_UNLOCKED]):
 			%InventorySlots.add_child(new_card)
 		
