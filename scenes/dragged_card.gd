@@ -13,6 +13,7 @@ var disabled_self : bool = false
 
 func _ready() -> void:
 	global_position = get_global_mouse_position()
+	GlobalSelected.is_card_held = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -41,9 +42,14 @@ func _process(_delta: float) -> void:
 		if(GlobalSelected.is_hovering_on_placement_slot == true):
 			var tween = get_tree().create_tween()
 			tween.tween_property(self, "scale", Vector2(1.005, 1.005), 0.05)
+			# Gives a bit of time for the slot to check if is_card_held
+			await tween.finished
+			GlobalSelected.is_card_held = false
+			tween = get_tree().create_tween()
 			tween.tween_property(self, "scale", Vector2(0.5, 0.5), 0.15)
 			tween.tween_callback(queue_free)
 		else:
+			GlobalSelected.is_card_held = false
 			queue_free()
 	# Movement animation if the card has not been released yet
 	else:

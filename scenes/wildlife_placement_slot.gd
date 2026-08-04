@@ -1,22 +1,54 @@
 extends Node2D
 
+enum{
+	NAME, ID, NUMBER, SUN, WATER
+}
+
+@export var slot_starting_values : Array = [
+	"Name", # Name
+	0, # ID
+	0, # Number in slot
+	0, # Sun
+	0, # Water
+]
+
+@export var is_slot_locked : bool = false
+
+@export var slot_finish_condition : Array[Variant] = [
+	"Name", # Name
+	0, # ID
+	0, # Number in slot
+	0, # Sun
+	0, # Water
+]
+
 ## The slots that this slot can affect
 @export var neighbours : Array[Node2D]
 
+var wildlife_in_slot : String = ""
 var wildlife_id : int
-@export var wildlife_in_slot : String = ""
-@export var no_of_wildlife_in_slot : int
-@export var current_sunlight : int = 0 # can be negative
-@export var current_moisture : int = 0 # can be negative
+var no_of_wildlife_in_slot : int
+var current_sunlight : int = 0 # can be negative
+var current_moisture : int = 0 # can be negative
 
 var mouse_in_slot : int = 0
 var dropped_wildlife_type : String
 var dropped_wildlife_id : int
 
+var is_slot_correct : bool = false
+
+func _ready() -> void:
+	wildlife_in_slot = slot_starting_values[NAME]
+	wildlife_id = slot_starting_values[ID]
+	no_of_wildlife_in_slot = slot_starting_values[NUMBER]
+	current_sunlight = slot_starting_values[SUN]
+	current_moisture = slot_starting_values[WATER]
+	update_visuals()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if(mouse_in_slot > 0):
-		if(Input.is_action_just_released("click")):
+	if(mouse_in_slot > 0 and is_slot_locked == false):
+		if(Input.is_action_just_released("click") && GlobalSelected.is_card_held):
 			dropped_wildlife_type = GlobalSelected.current_selected_item
 			dropped_wildlife_id = GlobalSelected.current_selected_item_id
 			update_slot_data()
@@ -24,6 +56,7 @@ func _process(_delta: float) -> void:
 
 ## Update it based on the wildlife type, number, and updated sun+water
 func update_visuals() -> void:
+	# Do an animation to gradually change this value?
 	self.modulate = Color(1, 1 - float(current_moisture) / 10.0, 1 - float(current_sunlight) / 10.0)
 	
 	if(no_of_wildlife_in_slot == 0):
@@ -32,6 +65,9 @@ func update_visuals() -> void:
 	else:
 		$temp_label.text = wildlife_in_slot + " " + str(no_of_wildlife_in_slot)
 		$ItemSprite.texture = ItemData.all_items[wildlife_id][ItemData.SPRITE][no_of_wildlife_in_slot - 1]
+		
+	# Probably move this elsewhere to not mix functionalty and visuals
+	check_if_slot_is_correct()
 
 ## Resets the count to 1 if the card type is different, otherwise add one to the count of wildlife in the slot
 func update_slot_data() -> void:
@@ -90,9 +126,36 @@ func update_neighbour_data(this_neighbour_node : Node2D, operator : String, diff
 		#print("no effect")
 	this_neighbour_node.update_visuals()
 
+## Checks each value one by one to see if its the same as the correct value or not
+func check_if_slot_is_correct() -> void:
+	if(slot_finish_condition[NAME] != null):
+		if(wildlife_in_slot != slot_finish_condition[NAME]):
+			is_slot_correct = false
+			return
+	if(slot_finish_condition[ID] != null):
+		if(wildlife_id != slot_finish_condition[ID]):
+			is_slot_correct = false
+			return
+	if(slot_finish_condition[NUMBER] != null):
+		if(no_of_wildlife_in_slot != slot_finish_condition[NUMBER]):
+			is_slot_correct = false
+			return
+	if(slot_finish_condition[SUN] != null):
+		if(current_sunlight != slot_finish_condition[SUN]):
+			is_slot_correct = false
+			return
+	if(slot_finish_condition[WATER] != null):
+		if(current_moisture != slot_finish_condition[WATER]):
+			is_slot_correct = false
+			return
+			
+	# If it passes everything without returning, it is correct
+	is_slot_correct = true
+
 func _on_area_2d_mouse_entered() -> void:
 	mouse_in_slot += 1
-	GlobalSelected.is_hovering_on_placement_slot = true
+	if(is_slot_locked == false):
+		GlobalSelected.is_hovering_on_placement_slot = true
 
 func _on_area_2d_mouse_exited() -> void:
 	mouse_in_slot -= 1

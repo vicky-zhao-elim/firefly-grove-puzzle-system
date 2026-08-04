@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bhcpsrggpggvn" path="res://firefly-grove-puzzle-system/main.gd" id="1_usug1"]
 [ext_resource type="PackedScene" uid="uid://dbnhlqctw5ofe" path="res://firefly-grove-puzzle-system/scenes/wildlife_placement_slot.tscn" id="3_d1qae"]
 [ext_resource type="Texture2D" uid="uid://bo2vk2y3lj0iq" path="res://icon.svg" id="4_l3sb5"]
+[ext_resource type="Script" uid="uid://cnjsrpprrgbfh" path="res://firefly-grove-puzzle-system/puzzle_group.gd" id="5_j00c0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mij3m"]
 bg_color = Color(0.43466252, 0.30991343, 0.21771893, 1)
@@ -110,17 +111,23 @@ offset_bottom = 644.0
 text = "^"
 
 [node name="World" type="Node2D" parent="." unique_id=1736146529]
+script = ExtResource("5_j00c0")
 
 [node name="WildlifePlacementSlot" parent="World" unique_id=962582458 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(573, 238)
+is_slot_locked = true
+slot_finish_condition = [null, null, 2, null, null]
 neighbours = [NodePath("../WildlifePlacementSlot2"), NodePath("../WildlifePlacementSlot3")]
 
 [node name="WildlifePlacementSlot2" parent="World" unique_id=1450722339 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(452, 232)
+slot_starting_values = ["Hello", 0, 2, 0, 0]
+slot_finish_condition = [null, null, 3, null, null]
 neighbours = [NodePath("../WildlifePlacementSlot")]
 
 [node name="WildlifePlacementSlot3" parent="World" unique_id=784154850 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(672, 224)
+slot_finish_condition = [null, null, 3, null, null]
 neighbours = [NodePath("../WildlifePlacementSlot")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=288263931]
