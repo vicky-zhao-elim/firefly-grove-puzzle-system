@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dbnhlqctw5ofe" path="res://firefly-grove-puzzle-system/scenes/wildlife_placement_slot.tscn" id="3_d1qae"]
 [ext_resource type="Texture2D" uid="uid://bo2vk2y3lj0iq" path="res://icon.svg" id="4_l3sb5"]
 [ext_resource type="Script" uid="uid://cnjsrpprrgbfh" path="res://firefly-grove-puzzle-system/puzzle_group.gd" id="5_j00c0"]
+[ext_resource type="Texture2D" uid="uid://dcj7s7umon7xr" path="res://firefly-grove-puzzle-system/assets/Tree.png" id="7_ag4ft"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mij3m"]
 bg_color = Color(0.43466252, 0.30991343, 0.21771893, 1)
@@ -34,7 +35,6 @@ wildlife_name = "Remove"
 card_texture = ExtResource("4_l3sb5")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Inventory/Panel" unique_id=377518485]
-custom_minimum_size = Vector2(950, 0)
 clip_contents = false
 layout_mode = 0
 offset_left = 182.0
@@ -110,28 +110,53 @@ offset_right = 129.0
 offset_bottom = 644.0
 text = "^"
 
-[node name="World" type="Node2D" parent="." unique_id=1736146529]
+[node name="PuzzleGroup" type="Node2D" parent="." unique_id=1736146529]
 script = ExtResource("5_j00c0")
 
-[node name="WildlifePlacementSlot" parent="World" unique_id=962582458 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
+[node name="WildlifePlacementSlot" parent="PuzzleGroup" unique_id=962582458 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(573, 238)
-is_slot_locked = true
 slot_finish_condition = [null, null, 2, null, null]
 neighbours = [NodePath("../WildlifePlacementSlot2"), NodePath("../WildlifePlacementSlot3")]
 
-[node name="WildlifePlacementSlot2" parent="World" unique_id=1450722339 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
+[node name="WildlifePlacementSlot2" parent="PuzzleGroup" unique_id=1450722339 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(452, 232)
 slot_starting_values = ["Hello", 0, 2, 0, 0]
 slot_finish_condition = [null, null, 3, null, null]
 neighbours = [NodePath("../WildlifePlacementSlot")]
 
-[node name="WildlifePlacementSlot3" parent="World" unique_id=784154850 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
+[node name="WildlifePlacementSlot3" parent="PuzzleGroup" unique_id=784154850 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(672, 224)
 slot_finish_condition = [null, null, 3, null, null]
 neighbours = [NodePath("../WildlifePlacementSlot")]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=288263931]
-texture = ExtResource("4_l3sb5")
+[node name="Background" type="Node2D" parent="." unique_id=1969503582]
+
+[node name="Tree2" type="Sprite2D" parent="Background" unique_id=1446491694]
+position = Vector2(1114, 39.999996)
+scale = Vector2(0.2573333, 0.28766665)
+texture = ExtResource("7_ag4ft")
+
+[node name="Tree3" type="Sprite2D" parent="Background" unique_id=988932511]
+position = Vector2(1003, 581.00006)
+scale = Vector2(0.40600002, 0.38424996)
+texture = ExtResource("7_ag4ft")
+flip_h = true
+
+[node name="Tree4" type="Sprite2D" parent="Background" unique_id=447684012]
+position = Vector2(169, 5.000061)
+scale = Vector2(0.20033331, 0.2807916)
+texture = ExtResource("7_ag4ft")
+flip_h = true
+
+[node name="Tree" type="Sprite2D" parent="Background" unique_id=1678736037]
+position = Vector2(5, 149)
+scale = Vector2(0.23466666, 0.28766665)
+texture = ExtResource("7_ag4ft")
+
+[node name="Tree5" type="Sprite2D" parent="Background" unique_id=256227523]
+position = Vector2(98, 606)
+scale = Vector2(0.2866667, 0.32916662)
+texture = ExtResource("7_ag4ft")
 
 [connection signal="pressed" from="Inventory/CoveringPanel/CloseButton" to="Inventory" method="_on_close_button_pressed"]
 [connection signal="pressed" from="Inventory/OpenButton" to="Inventory" method="_on_button_pressed"]

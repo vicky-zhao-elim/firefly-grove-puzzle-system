@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chs3m21mu4dxj"]
 
-[ext_resource type="Script" uid="uid://bntmv6tbmwit5" path="res://firefly-grove-puzzle-system/scenes/wildlife_slot.gd" id="1_beuea"]
+[ext_resource type="Script" uid="uid://bntmv6tbmwit5" path="res://firefly-grove-puzzle-system/scenes/wildlife_card_slot.gd" id="1_beuea"]
+[ext_resource type="Texture2D" uid="uid://bo2vk2y3lj0iq" path="res://icon.svg" id="2_lf5st"]
 
 [node name="WildlifeSlot" type="Control" unique_id=951987194]
 custom_minimum_size = Vector2(100, 100)
@@ -8,11 +9,19 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_beuea")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1529706189]
+[node name="TextureRectBackground" type="TextureRect" parent="." unique_id=1529706189]
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
+texture = ExtResource("2_lf5st")
 expand_mode = 1
 
-[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]
-[connection signal="mouse_exited" from="TextureRect" to="." method="_on_texture_rect_mouse_exited"]
+[node name="TextureRectImage" type="TextureRect" parent="." unique_id=932376425]
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 101.0
+mouse_filter = 2
+expand_mode = 1
+
+[connection signal="mouse_entered" from="TextureRectBackground" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRectBackground" to="." method="_on_texture_rect_mouse_exited"]

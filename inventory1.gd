@@ -6,10 +6,16 @@ func _ready() -> void:
 	# Change window size to test
 	
 	var screen_size : Vector2 = get_viewport().get_visible_rect().size
+	print(screen_size)
+	
 	%Panel.position.y = screen_size.y - %Panel.size.y
 	
 	$CoveringPanel.size.y = %Panel.size.y
 	$CoveringPanel.position.y = %Panel.position.y
+	
+	$OpenButton.position.y = screen_size.y - $OpenButton.size.y
+	
+	$Panel/ScrollContainer.custom_maximum_size.x = screen_size.x - $Panel/ScrollContainer.position.x
 	
 	for child in %InventorySlots.get_children():
 		child.queue_free()

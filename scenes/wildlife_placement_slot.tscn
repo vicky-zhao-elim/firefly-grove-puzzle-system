@@ -21,6 +21,7 @@ texture = SubResource("CompressedTexture2D_no7kj")
 shape = SubResource("CircleShape2D_1vivr")
 
 [node name="ItemSprite" type="Sprite2D" parent="." unique_id=846325227]
+scale = Vector2(0.2, 0.2)
 
 [node name="temp_label" type="Label" parent="." unique_id=1316455122]
 offset_right = 40.0

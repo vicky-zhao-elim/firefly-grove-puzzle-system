@@ -8,8 +8,8 @@ load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.cte
 [node name="DraggedCard" type="Node2D" unique_id=825106454]
 script = ExtResource("1_bxchh")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1975181085]
-freeze = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=269156700]
+[node name="CardBackground" type="Sprite2D" parent="." unique_id=269156700]
 texture = SubResource("CompressedTexture2D_4w6we")
+
+[node name="CardImage" type="Sprite2D" parent="CardBackground" unique_id=1103180291]
+scale = Vector2(0.2, 0.2)
