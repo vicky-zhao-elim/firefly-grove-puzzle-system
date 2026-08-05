@@ -1,11 +1,11 @@
 extends Node2D
 
 enum{
-	NAME, ID, NUMBER, SUN, WATER
+	ID, NUMBER, SUN, WATER
 }
 
+## ID, NO in slot, sun, water
 @export var slot_starting_values : Array = [
-	"Name", # Name
 	0, # ID
 	0, # Number in slot
 	0, # Sun
@@ -14,31 +14,28 @@ enum{
 
 @export var is_slot_locked : bool = false
 
+## ID, NO in slot, sun, water
 @export var slot_finish_condition : Array[Variant] = [
-	"Name", # Name
-	0, # ID
-	0, # Number in slot
-	0, # Sun
-	0, # Water
+	null, # ID
+	null, # Number in slot
+	null, # Sun
+	null, # Water
 ]
 
 ## The slots that this slot can affect
 @export var neighbours : Array[Node2D]
 
-var wildlife_in_slot : String = ""
 var wildlife_id : int
 var no_of_wildlife_in_slot : int
 var current_sunlight : int = 0 # can be negative
 var current_moisture : int = 0 # can be negative
 
 var mouse_in_slot : int = 0
-var dropped_wildlife_type : String
 var dropped_wildlife_id : int
 
 var is_slot_correct : bool = false
 
 func _ready() -> void:
-	wildlife_in_slot = slot_starting_values[NAME]
 	wildlife_id = slot_starting_values[ID]
 	no_of_wildlife_in_slot = slot_starting_values[NUMBER]
 	current_sunlight = slot_starting_values[SUN]
@@ -49,7 +46,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if(mouse_in_slot > 0 and is_slot_locked == false):
 		if(Input.is_action_just_released("click") && GlobalSelected.is_card_held):
-			dropped_wildlife_type = GlobalSelected.current_selected_item
 			dropped_wildlife_id = GlobalSelected.current_selected_item_id
 			update_slot_data()
 			update_visuals()
@@ -63,7 +59,7 @@ func update_visuals() -> void:
 		$temp_label.text = "empty " + str(no_of_wildlife_in_slot)
 		$ItemSprite.texture = null
 	else:
-		$temp_label.text = wildlife_in_slot + " " + str(no_of_wildlife_in_slot)
+		$temp_label.text = ItemData.all_items[wildlife_id][ItemData.NAME] + " " + str(no_of_wildlife_in_slot)
 		$ItemSprite.texture = ItemData.all_items[wildlife_id][ItemData.SPRITE][no_of_wildlife_in_slot - 1]
 		
 	# Probably move this elsewhere to not mix functionalty and visuals
@@ -71,15 +67,14 @@ func update_visuals() -> void:
 
 ## Resets the count to 1 if the card type is different, otherwise add one to the count of wildlife in the slot
 func update_slot_data() -> void:
-	if(dropped_wildlife_type == "Remove"):
+	if(dropped_wildlife_id == -1):
 		if(no_of_wildlife_in_slot != 0):
 			revert_slot_effect(1)
 		return
-	if(wildlife_in_slot != dropped_wildlife_type):
+	if(wildlife_id != dropped_wildlife_id):
 		# Reverse the prior plant's effects
 		revert_slot_effect(no_of_wildlife_in_slot)
 		
-		wildlife_in_slot = dropped_wildlife_type
 		wildlife_id = dropped_wildlife_id
 	no_of_wildlife_in_slot += 1
 	if(no_of_wildlife_in_slot > 4):
@@ -87,7 +82,7 @@ func update_slot_data() -> void:
 	else:
 		for neighbour in neighbours:
 			update_neighbour_data(neighbour, "add", 1)
-	$temp_label.text = wildlife_in_slot + " " + str(no_of_wildlife_in_slot)
+	$temp_label.text = ItemData.all_items[wildlife_id][ItemData.NAME] + " " + str(no_of_wildlife_in_slot)
 
 ## Reverts the slot effect a certain number of times, calling the function update_neighbour_data to change the neighbours.
 func revert_slot_effect(number_removed : int) -> void:
@@ -128,10 +123,6 @@ func update_neighbour_data(this_neighbour_node : Node2D, operator : String, diff
 
 ## Checks each value one by one to see if its the same as the correct value or not
 func check_if_slot_is_correct() -> void:
-	if(slot_finish_condition[NAME] != null):
-		if(wildlife_in_slot != slot_finish_condition[NAME]):
-			is_slot_correct = false
-			return
 	if(slot_finish_condition[ID] != null):
 		if(wildlife_id != slot_finish_condition[ID]):
 			is_slot_correct = false

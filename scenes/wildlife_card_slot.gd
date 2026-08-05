@@ -2,8 +2,7 @@ extends Control
 
 signal picked_up_card
 
-var wildlife_id : int
-@export var wildlife_name : String
+@export var wildlife_id : int
 @export var card_texture : Texture2D
 
 var is_mouse_in_slot : int = 0
@@ -21,7 +20,7 @@ func _process(_delta: float) -> void:
 		$TextureRectBackground.rotation_degrees = move_toward($TextureRectBackground.rotation_degrees, -5, rotation_speed)
 		$TextureRectImage.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, -5, rotation_speed)
 		if(Input.is_action_just_pressed("click")):
-			picked_up_card.emit(wildlife_name, wildlife_id)
+			picked_up_card.emit(wildlife_id)
 	# Else, reset to the normal values
 	else:
 		self.modulate = Color.WHITE

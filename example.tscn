@@ -31,7 +31,7 @@ offset_left = 325.0
 offset_top = -153.0
 offset_right = 425.0
 offset_bottom = -53.0
-wildlife_name = "Remove"
+wildlife_id = -1
 card_texture = ExtResource("4_l3sb5")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Inventory/Panel" unique_id=377518485]
@@ -49,43 +49,33 @@ layout_mode = 2
 
 [node name="WildlifeSlot" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=381092288 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "a"
 
 [node name="WildlifeSlot2" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1490684973 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "b"
 
 [node name="WildlifeSlot3" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1967874080 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "c"
 
 [node name="WildlifeSlot4" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=2014938469 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "d"
 
 [node name="WildlifeSlot5" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1636381719 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "e"
 
 [node name="WildlifeSlot6" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1840088134 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "f"
 
 [node name="WildlifeSlot9" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=480604520 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "g"
 
 [node name="WildlifeSlot10" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1728735615 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "h"
 
 [node name="WildlifeSlot7" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=207497760 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "i"
 
 [node name="WildlifeSlot8" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1893067295 instance=ExtResource("1_a77ls")]
 layout_mode = 2
-wildlife_name = "j"
 
 [node name="CoveringPanel" type="Panel" parent="Inventory" unique_id=368313755]
 offset_top = 509.0
@@ -115,18 +105,16 @@ script = ExtResource("5_j00c0")
 
 [node name="WildlifePlacementSlot" parent="PuzzleGroup" unique_id=962582458 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(573, 238)
-slot_finish_condition = [null, null, 2, null, null]
 neighbours = [NodePath("../WildlifePlacementSlot2"), NodePath("../WildlifePlacementSlot3")]
 
 [node name="WildlifePlacementSlot2" parent="PuzzleGroup" unique_id=1450722339 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(452, 232)
-slot_starting_values = ["Hello", 0, 2, 0, 0]
-slot_finish_condition = [null, null, 3, null, null]
+slot_starting_values = [0, 2, 0, 0]
 neighbours = [NodePath("../WildlifePlacementSlot")]
 
 [node name="WildlifePlacementSlot3" parent="PuzzleGroup" unique_id=784154850 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(672, 224)
-slot_finish_condition = [null, null, 3, null, null]
+slot_finish_condition = [null, 2, null, null]
 neighbours = [NodePath("../WildlifePlacementSlot")]
 
 [node name="Background" type="Node2D" parent="." unique_id=1969503582]

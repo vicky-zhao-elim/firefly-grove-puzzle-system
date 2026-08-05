@@ -23,7 +23,6 @@ func _ready() -> void:
 	for i in range(ItemData.all_items.size()):
 		var item : Array = ItemData.all_items[i]
 		var new_card = card_scene.instantiate()
-		new_card.wildlife_name = item[ItemData.NAME]
 		new_card.wildlife_id = i
 		new_card.card_texture = item[ItemData.SPRITE][0]
 		if(item[ItemData.IS_UNLOCKED]):

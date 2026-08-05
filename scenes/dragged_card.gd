@@ -1,7 +1,6 @@
 extends Node2D
 
 var wildlife_id : int
-var wildlife_name : String
 
 var prev_mouse_pos: Vector2 = Vector2.ZERO
 # Maybe make this a global
