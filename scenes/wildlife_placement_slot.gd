@@ -1,26 +1,10 @@
 extends Node2D
 
-enum{
-	ID, NUMBER, SUN, WATER
-}
-
-## ID, NO in slot, sun, water
-@export var slot_starting_values : Array = [
-	0, # ID
-	0, # Number in slot
-	0, # Sun
-	0, # Water
-]
+@export var slot_starting_values: SlotData
 
 @export var is_slot_locked : bool = false
 
-## ID, NO in slot, sun, water
-@export var slot_finish_condition : Array[Variant] = [
-	null, # ID
-	null, # Number in slot
-	null, # Sun
-	null, # Water
-]
+@export var slot_finish_condition: SlotData
 
 ## The slots that this slot can affect
 @export var neighbours : Array[Node2D]
@@ -36,10 +20,10 @@ var dropped_wildlife_id : int
 var is_slot_correct : bool = false
 
 func _ready() -> void:
-	wildlife_id = slot_starting_values[ID]
-	no_of_wildlife_in_slot = slot_starting_values[NUMBER]
-	current_sunlight = slot_starting_values[SUN]
-	current_moisture = slot_starting_values[WATER]
+	wildlife_id = slot_starting_values.id
+	no_of_wildlife_in_slot = slot_starting_values.number_of_items
+	current_sunlight = slot_starting_values.sunlight
+	current_moisture = slot_starting_values.moisture
 	update_visuals()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -123,20 +107,20 @@ func update_neighbour_data(this_neighbour_node : Node2D, operator : String, diff
 
 ## Checks each value one by one to see if its the same as the correct value or not
 func check_if_slot_is_correct() -> void:
-	if(slot_finish_condition[ID] != null):
-		if(wildlife_id != slot_finish_condition[ID]):
+	if(slot_finish_condition.id != null):
+		if(wildlife_id != slot_finish_condition.id):
 			is_slot_correct = false
 			return
-	if(slot_finish_condition[NUMBER] != null):
-		if(no_of_wildlife_in_slot != slot_finish_condition[NUMBER]):
+	if(slot_finish_condition.number_of_items != null):
+		if(no_of_wildlife_in_slot != slot_finish_condition.number_of_items):
 			is_slot_correct = false
 			return
-	if(slot_finish_condition[SUN] != null):
-		if(current_sunlight != slot_finish_condition[SUN]):
+	if(slot_finish_condition.sunlight != null):
+		if(current_sunlight != slot_finish_condition.sunlight):
 			is_slot_correct = false
 			return
-	if(slot_finish_condition[WATER] != null):
-		if(current_moisture != slot_finish_condition[WATER]):
+	if(slot_finish_condition.moisture != null):
+		if(current_moisture != slot_finish_condition.moisture):
 			is_slot_correct = false
 			return
 			

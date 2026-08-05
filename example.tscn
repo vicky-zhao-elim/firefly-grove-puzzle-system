@@ -7,9 +7,34 @@
 [ext_resource type="Texture2D" uid="uid://bo2vk2y3lj0iq" path="res://icon.svg" id="4_l3sb5"]
 [ext_resource type="Script" uid="uid://cnjsrpprrgbfh" path="res://firefly-grove-puzzle-system/puzzle_group.gd" id="5_j00c0"]
 [ext_resource type="Texture2D" uid="uid://dcj7s7umon7xr" path="res://firefly-grove-puzzle-system/assets/Tree.png" id="7_ag4ft"]
+[ext_resource type="Script" uid="uid://b1dfvhej4nmhx" path="res://firefly-grove-puzzle-system/resources/slot_data.gd" id="7_twu1f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mij3m"]
 bg_color = Color(0.43466252, 0.30991343, 0.21771893, 1)
+
+[sub_resource type="Resource" id="Resource_mofwc"]
+script = ExtResource("7_twu1f")
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_twu1f"]
+script = ExtResource("7_twu1f")
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_wdd8p"]
+script = ExtResource("7_twu1f")
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_uakye"]
+script = ExtResource("7_twu1f")
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_qtds1"]
+script = ExtResource("7_twu1f")
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_54dye"]
+script = ExtResource("7_twu1f")
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
 
 [node name="Example" type="Node2D" unique_id=1851213236]
 script = ExtResource("1_usug1")
@@ -105,16 +130,20 @@ script = ExtResource("5_j00c0")
 
 [node name="WildlifePlacementSlot" parent="PuzzleGroup" unique_id=962582458 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(573, 238)
+slot_starting_values = SubResource("Resource_mofwc")
+slot_finish_condition = SubResource("Resource_twu1f")
 neighbours = [NodePath("../WildlifePlacementSlot2"), NodePath("../WildlifePlacementSlot3")]
 
 [node name="WildlifePlacementSlot2" parent="PuzzleGroup" unique_id=1450722339 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(452, 232)
-slot_starting_values = [0, 2, 0, 0]
+slot_starting_values = SubResource("Resource_wdd8p")
+slot_finish_condition = SubResource("Resource_uakye")
 neighbours = [NodePath("../WildlifePlacementSlot")]
 
 [node name="WildlifePlacementSlot3" parent="PuzzleGroup" unique_id=784154850 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
 position = Vector2(672, 224)
-slot_finish_condition = [null, 2, null, null]
+slot_starting_values = SubResource("Resource_qtds1")
+slot_finish_condition = SubResource("Resource_54dye")
 neighbours = [NodePath("../WildlifePlacementSlot")]
 
 [node name="Background" type="Node2D" parent="." unique_id=1969503582]

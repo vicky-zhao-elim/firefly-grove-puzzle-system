@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SlotData" format=3 uid="uid://c32ujukddvape"]
+
+[ext_resource type="Script" uid="uid://b1dfvhej4nmhx" path="res://firefly-grove-puzzle-system/resources/slot_data.gd" id="1_do7ci"]
+
+[resource]
+script = ExtResource("1_do7ci")
