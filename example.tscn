@@ -26,6 +26,7 @@ metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
 
 [sub_resource type="Resource" id="Resource_uakye"]
 script = ExtResource("7_twu1f")
+number_of_items = 1
 metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
 
 [sub_resource type="Resource" id="Resource_qtds1"]
@@ -52,10 +53,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mij3m")
 
 [node name="RemoveWildlifeSlot" parent="Inventory/Panel" unique_id=951987194 instance=ExtResource("1_a77ls")]
 layout_mode = 0
-offset_left = 325.0
-offset_top = -153.0
-offset_right = 425.0
-offset_bottom = -53.0
+offset_left = 24.0
+offset_top = -117.0
+offset_right = 124.0
+offset_bottom = -17.0
 wildlife_id = -1
 card_texture = ExtResource("4_l3sb5")
 
@@ -70,36 +71,6 @@ vertical_scroll_mode = 0
 
 [node name="InventorySlots" type="HBoxContainer" parent="Inventory/Panel/ScrollContainer" unique_id=2081701298]
 unique_name_in_owner = true
-layout_mode = 2
-
-[node name="WildlifeSlot" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=381092288 instance=ExtResource("1_a77ls")]
-layout_mode = 2
-
-[node name="WildlifeSlot2" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1490684973 instance=ExtResource("1_a77ls")]
-layout_mode = 2
-
-[node name="WildlifeSlot3" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1967874080 instance=ExtResource("1_a77ls")]
-layout_mode = 2
-
-[node name="WildlifeSlot4" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=2014938469 instance=ExtResource("1_a77ls")]
-layout_mode = 2
-
-[node name="WildlifeSlot5" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1636381719 instance=ExtResource("1_a77ls")]
-layout_mode = 2
-
-[node name="WildlifeSlot6" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1840088134 instance=ExtResource("1_a77ls")]
-layout_mode = 2
-
-[node name="WildlifeSlot9" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=480604520 instance=ExtResource("1_a77ls")]
-layout_mode = 2
-
-[node name="WildlifeSlot10" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1728735615 instance=ExtResource("1_a77ls")]
-layout_mode = 2
-
-[node name="WildlifeSlot7" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=207497760 instance=ExtResource("1_a77ls")]
-layout_mode = 2
-
-[node name="WildlifeSlot8" parent="Inventory/Panel/ScrollContainer/InventorySlots" unique_id=1893067295 instance=ExtResource("1_a77ls")]
 layout_mode = 2
 
 [node name="CoveringPanel" type="Panel" parent="Inventory" unique_id=368313755]
@@ -176,4 +147,4 @@ scale = Vector2(0.2866667, 0.32916662)
 texture = ExtResource("7_ag4ft")
 
 [connection signal="pressed" from="Inventory/CoveringPanel/CloseButton" to="Inventory" method="_on_close_button_pressed"]
-[connection signal="pressed" from="Inventory/OpenButton" to="Inventory" method="_on_button_pressed"]
+[connection signal="pressed" from="Inventory/OpenButton" to="Inventory" method="_on_open_button_pressed"]

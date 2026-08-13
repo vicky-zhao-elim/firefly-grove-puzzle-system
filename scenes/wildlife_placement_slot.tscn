@@ -28,5 +28,12 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "temp"
 
+[node name="sun_value_label" type="Label" parent="." unique_id=1256869442]
+offset_left = 1.0
+offset_top = 19.0
+offset_right = 42.0
+offset_bottom = 42.0
+text = "temp"
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,16 +1,20 @@
 extends Control
 
+## Signal emitted from wildlife_card_slot.gd when the mouse is in the slot
+## and is clicked. Recieved by main.gd add_picked_up_card(card_id).
 signal picked_up_card
 
-@export var wildlife_id : int
-@export var card_texture : Texture2D
+@export var wildlife_id: int
+@export var card_texture: Texture2D
 
-var is_mouse_in_slot : int = 0
+var is_mouse_in_slot: int = 0
 
 const rotation_speed := 1.5
 
+
 func _ready() -> void:
 	$TextureRectImage.texture = card_texture
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -28,8 +32,11 @@ func _process(_delta: float) -> void:
 		$TextureRectImage.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, 0, rotation_speed)
 
 
+## Function that runs when the mouse enters the card.
 func _on_texture_rect_mouse_entered() -> void:
 	is_mouse_in_slot += 1
 
+
+## Function that runs when the mouse exits the card.
 func _on_texture_rect_mouse_exited() -> void:
 	is_mouse_in_slot -= 1

@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var card_scene : PackedScene = preload("res://firefly-grove-puzzle-system/scenes/wildlife_card_slot.tscn")
 
+
 func _ready() -> void:
 	# Change window size to test
 	
@@ -27,15 +28,17 @@ func _ready() -> void:
 		new_card.card_texture = item[ItemData.SPRITE][0]
 		if(item[ItemData.IS_UNLOCKED]):
 			%InventorySlots.add_child(new_card)
-		
 
-func _on_button_pressed() -> void:
+
+## Function that runs when the open button is pressed.
+func _on_open_button_pressed() -> void:
 	$Panel.show()
 	%CloseButton.show()
 	$CoveringPanel.show()
 	$OpenButton.hide()
 
 
+## Function that runs when the close button is pressed.
 func _on_close_button_pressed() -> void:
 	$Panel.hide()
 	%CloseButton.hide()

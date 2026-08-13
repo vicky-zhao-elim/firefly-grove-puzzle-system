@@ -1,8 +1,8 @@
 extends Node2D
 
-var wildlife_id : int
+var wildlife_id: int
 
-var prev_mouse_pos: Vector2 = Vector2.ZERO
+var prev_mouse_pos := Vector2.ZERO
 # Maybe make this a global
 const skew_speed := 0.005
 const scale_speed := 0.05
@@ -10,10 +10,12 @@ const rotation_speed := 1.5
 
 var disabled_self : bool = false
 
+
 func _ready() -> void:
 	global_position = get_global_mouse_position()
 	GlobalSelected.is_card_held = true
 	$CardBackground/CardImage.texture = ItemData.all_items[wildlife_id][ItemData.SPRITE][0]
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
