@@ -4,12 +4,10 @@ extends Node2D
 ## Recieved by ??
 signal puzzle_group_complete
 
-#region abc
 @export var puzzle_id: int
-#endregion
 
 ## Has the group been correct for the first time yet?
-var is_first_correct : bool = true
+var _is_first_correct : bool = true
 
 ## Continously check if all of the slots belonging to this node are correct.
 ## If so, trigger the end of the puzzle and lock all slots from further modification.
@@ -19,9 +17,9 @@ func _process(_delta: float) -> void:
 		if(child.is_slot_correct == false):
 			_is_correct = false
 			
-	if(_is_correct and is_first_correct):
+	if(_is_correct and _is_first_correct):
 		print("All correct")
-		is_first_correct = false
+		_is_first_correct = false
 		puzzle_group_complete.emit(puzzle_id)
 		for child in get_children():
 			child.is_slot_locked = true

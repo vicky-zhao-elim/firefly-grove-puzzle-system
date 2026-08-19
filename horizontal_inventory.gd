@@ -1,24 +1,23 @@
 extends CanvasLayer
 
-var card_scene : PackedScene = preload("res://firefly-grove-puzzle-system/scenes/wildlife_card_slot.tscn")
+var card_scene: PackedScene = preload("res://firefly-grove-puzzle-system/scenes/wildlife_card_slot.tscn")
 
 
 func _ready() -> void:
 	# Change window size to test
 	
 	var screen_size : Vector2 = get_viewport().get_visible_rect().size
-	print(screen_size)
 	
-	%Panel.position.y = screen_size.y - %Panel.size.y
+	$Panel.position.y = screen_size.y - $Panel.size.y
 	
-	$CoveringPanel.size.y = %Panel.size.y
-	$CoveringPanel.position.y = %Panel.position.y
+	%HorizontalCoveringPanel.size.y = $Panel.size.y
+	%HorizontalCoveringPanel.position.y = $Panel.position.y
 	
 	$OpenButton.position.y = screen_size.y - $OpenButton.size.y
 	
 	$Panel/ScrollContainer.custom_maximum_size.x = screen_size.x - $Panel/ScrollContainer.position.x
 	
-	for child in %InventorySlots.get_children():
+	for child in %HorizontalInventorySlots.get_children():
 		child.queue_free()
 		
 	for i in range(ItemData.all_items.size()):
@@ -27,20 +26,20 @@ func _ready() -> void:
 		new_card.wildlife_id = i
 		new_card.card_texture = item[ItemData.SPRITE][0]
 		if(item[ItemData.IS_UNLOCKED]):
-			%InventorySlots.add_child(new_card)
+			%HorizontalInventorySlots.add_child(new_card)
 
 
 ## Function that runs when the open button is pressed.
 func _on_open_button_pressed() -> void:
 	$Panel.show()
-	%CloseButton.show()
-	$CoveringPanel.show()
+	$HorizontalCoveringPanel/CloseButton.show()
+	$HorizontalCoveringPanel.show()
 	$OpenButton.hide()
 
 
 ## Function that runs when the close button is pressed.
 func _on_close_button_pressed() -> void:
 	$Panel.hide()
-	%CloseButton.hide()
-	$CoveringPanel.hide()
+	$HorizontalCoveringPanel/CloseButton.hide()
+	$HorizontalCoveringPanel.hide()
 	$OpenButton.show()
