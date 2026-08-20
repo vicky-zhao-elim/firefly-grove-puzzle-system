@@ -8,7 +8,7 @@ const skew_speed := 0.005
 const scale_speed := 0.05
 const rotation_speed := 1.5
 
-var disabled_self : bool = false
+var disabled_self: bool = false
 
 
 func _ready() -> void:

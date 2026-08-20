@@ -7,7 +7,7 @@ signal puzzle_group_complete
 @export var puzzle_id: int
 
 ## Has the group been correct for the first time yet?
-var _is_first_correct : bool = true
+var _is_first_correct: bool = true
 
 ## Continously check if all of the slots belonging to this node are correct.
 ## If so, trigger the end of the puzzle and lock all slots from further modification.

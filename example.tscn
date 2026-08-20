@@ -41,7 +41,6 @@ metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
 
 [node name="Example" type="Node2D" unique_id=1851213236]
 script = ExtResource("1_usug1")
-inventory_layout = 1
 
 [node name="HorizontalInventory" type="CanvasLayer" parent="." unique_id=614257888]
 unique_name_in_owner = true
@@ -77,15 +76,14 @@ vertical_scroll_mode = 0
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HorizontalCoveringPanel" type="Panel" parent="HorizontalInventory" unique_id=368313755]
+[node name="HorizontalCoveringPanel" type="Panel" parent="HorizontalInventory/Panel" unique_id=368313755]
 unique_name_in_owner = true
-offset_top = 509.0
+layout_mode = 0
 offset_right = 178.0
-offset_bottom = 644.0
+offset_bottom = 135.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mij3m")
 
-[node name="CloseButton" type="Button" parent="HorizontalInventory/HorizontalCoveringPanel" unique_id=221725685]
-unique_name_in_owner = true
+[node name="CloseButton" type="Button" parent="HorizontalInventory/Panel/HorizontalCoveringPanel" unique_id=221725685]
 layout_mode = 0
 offset_left = 22.0
 offset_top = 18.0
@@ -103,6 +101,7 @@ text = "^"
 
 [node name="VerticalInventory" type="CanvasLayer" parent="." unique_id=1515735964]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("5_mofwc")
 
 [node name="Panel" type="Panel" parent="VerticalInventory" unique_id=1687695527]
@@ -125,23 +124,23 @@ clip_contents = false
 layout_mode = 0
 offset_left = 26.0
 offset_top = 19.0
-offset_right = 172.0
+offset_right = 126.0
 offset_bottom = 543.0
-pivot_offset = Vector2(-22, 185)
 horizontal_scroll_mode = 0
 
 [node name="VerticalInventorySlots" type="VBoxContainer" parent="VerticalInventory/Panel/ScrollContainer" unique_id=1789936354]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VerticalCoveringPanel" type="Panel" parent="VerticalInventory" unique_id=350196661]
+[node name="VerticalCoveringPanel" type="Panel" parent="VerticalInventory/Panel" unique_id=350196661]
 unique_name_in_owner = true
+layout_mode = 0
 offset_top = 509.0
 offset_right = 178.0
 offset_bottom = 644.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mij3m")
 
-[node name="CloseButton" type="Button" parent="VerticalInventory/VerticalCoveringPanel" unique_id=203504547]
+[node name="CloseButton" type="Button" parent="VerticalInventory/Panel/VerticalCoveringPanel" unique_id=203504547]
 layout_mode = 0
 offset_left = 22.0
 offset_top = 18.0
@@ -151,11 +150,10 @@ text = "Toggle"
 
 [node name="OpenButton" type="Button" parent="VerticalInventory" unique_id=1381462348]
 visible = false
-offset_left = 49.0
-offset_top = 613.0
-offset_right = 129.0
+offset_top = 569.0
+offset_right = 37.0
 offset_bottom = 644.0
-text = "^"
+text = ">"
 
 [node name="PuzzleGroup" type="Node2D" parent="." unique_id=1736146529]
 script = ExtResource("5_j00c0")
@@ -207,7 +205,7 @@ position = Vector2(98, 606)
 scale = Vector2(0.2866667, 0.32916662)
 texture = ExtResource("7_ag4ft")
 
-[connection signal="pressed" from="HorizontalInventory/HorizontalCoveringPanel/CloseButton" to="HorizontalInventory" method="_on_close_button_pressed"]
+[connection signal="pressed" from="HorizontalInventory/Panel/HorizontalCoveringPanel/CloseButton" to="HorizontalInventory" method="_on_close_button_pressed"]
 [connection signal="pressed" from="HorizontalInventory/OpenButton" to="HorizontalInventory" method="_on_open_button_pressed"]
-[connection signal="pressed" from="VerticalInventory/VerticalCoveringPanel/CloseButton" to="VerticalInventory" method="_on_close_button_pressed"]
+[connection signal="pressed" from="VerticalInventory/Panel/VerticalCoveringPanel/CloseButton" to="VerticalInventory" method="_on_close_button_pressed"]
 [connection signal="pressed" from="VerticalInventory/OpenButton" to="VerticalInventory" method="_on_open_button_pressed"]

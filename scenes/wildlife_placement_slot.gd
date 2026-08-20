@@ -119,6 +119,7 @@ func update_debug_labels() -> void:
 	$temp_label.text = ItemData.all_items[wildlife_id][ItemData.NAME] + " " + str(no_of_wildlife_in_slot)
 	$sun_value_label.text = str(current_sunlight)
 
+
 ## Checks each value one by one to see if its the same as the correct value or not
 func check_if_slot_is_correct() -> void:
 	if(slot_finish_condition.id != -1):
