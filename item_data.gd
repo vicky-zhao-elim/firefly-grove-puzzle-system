@@ -1,7 +1,7 @@
 extends Node
 
 enum {
-	NAME, SPRITE, IS_UNLOCKED, HAS_EFFECT, EFFECT
+	NAME, SPRITE, IS_UNLOCKED, EFFECT
 }
 
 enum ItemEffect{
@@ -10,36 +10,36 @@ enum ItemEffect{
 
 ## Array of arrays storing all items. Each array represents an item, in the following
 ## format: (Index implied), Name: String, sprite: Array (one for each number), 
-## unlocked?: bool, has effect?: bool => Array[effect type, effect strength]
+## unlocked?: bool, effects: dict
 var all_items: Array[Array] = [
 	["One", [
 		load("res://firefly-grove-puzzle-system/assets/Sunflower-1.png"), load("res://firefly-grove-puzzle-system/assets/Sunflower-2.png"), load("res://firefly-grove-puzzle-system/assets/Sunflower-3.png"), load("res://firefly-grove-puzzle-system/assets/Sunflower-4.png")
-		], true, false],
+		], true, {}],
 	["Three", [
 		load("res://firefly-grove-puzzle-system/assets/Pufflower.png"), load("res://firefly-grove-puzzle-system/assets/Pufflower.png"), load("res://firefly-grove-puzzle-system/assets/Pufflower.png"), load("res://firefly-grove-puzzle-system/assets/Pufflower.png")
-		], true, true, ["sun", 8]],
+		], true, {"sun": 8, "water": 5}],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
-		], true, true, ["sun", -8]],
+		], true, {"sun": -8}],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
-		], true, false],
+		], true, {}],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
-		], true, false],
+		], true, {}],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
-		], true, false],
+		], true, {}],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
-		], true, false],
+		], true, {}],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
-		], true, false],
+		], true, {}],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
-		], true, false],
+		], true, {}],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
-		], true, false],
+		], true, {}],
 ]

@@ -83,31 +83,30 @@ func revert_slot_effect(number_removed : int) -> void:
 
 ## Based on the originating item type in the slot, change the neighbouring slot's sun or water by a certain amount.
 ## Then, calls the function to update the visuals of the slots so they update immediately.
-func update_neighbour_data(this_neighbour_node : Node2D, operator : String, difference : int) -> void:
+func update_neighbour_data(this_neighbour_node : Node2D, operator: String, difference : int) -> void:
 	# This makes it so the slot will not affect itself, only its neighbours
 	if(this_neighbour_node == self):
 		return
 		
-	if(ItemData.all_items[wildlife_id][ItemData.HAS_EFFECT]):
-		var effect: Array = ItemData.all_items[wildlife_id][ItemData.EFFECT]
-		var effect_type: String = effect[0]
-		var effect_strength: int = effect[1]
-		if(operator == "add"):
+	var operator_multiplier: int
+	if(operator == "add"):
+		operator_multiplier = 1
+	elif(operator == "subtract"):
+		operator_multiplier = -1
+	else:
+		printerr("Invalid operator for update data function")
+		
+	if(ItemData.all_items[wildlife_id][ItemData.EFFECT].is_empty() == false):
+		var effects: Dictionary = ItemData.all_items[wildlife_id][ItemData.EFFECT]
+		for effect_type: String in effects.keys():
+			#TODO Maybe don't do if statements and just change it directly?
 			if(effect_type == "sun"):
-				this_neighbour_node.current_sunlight += effect_strength * difference
+				this_neighbour_node.current_sunlight += effects[effect_type] * difference * operator_multiplier
 			elif(effect_type == "water"):
-				this_neighbour_node.current_moisture += effect_strength * difference
+				this_neighbour_node.current_moisture += effects[effect_type] * difference * operator_multiplier
 			else:
 				printerr("Invalid effect type")
-		elif(operator == "subtract"):
-			if(effect_type == "sun"):
-				this_neighbour_node.current_sunlight -= effect_strength * difference
-			elif(effect_type == "water"):
-				this_neighbour_node.current_moisture -= effect_strength * difference
-			else:
-				printerr("Invalid effect type")
-		else:
-			printerr("Invalid operator")
+		
 	else:
 		pass
 		#print("no effect")
