@@ -1,13 +1,17 @@
 extends Node2D
 
-var wildlife_id: int
-
-var prev_mouse_pos := Vector2.ZERO
-# Maybe make this a global
 const skew_speed := 0.005
 const scale_speed := 0.05
 const rotation_speed := 1.5
 
+## The ID of this card
+var wildlife_id: int
+
+## The position the mouse was in last frame
+var prev_mouse_pos := Vector2.ZERO
+
+## Is this node disabled? This is used to prevent the card from following the player's mouse
+## after the player lets go of the card
 var disabled_self: bool = false
 
 

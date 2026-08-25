@@ -84,6 +84,7 @@ func revert_slot_effect(number_removed : int) -> void:
 ## Based on the originating item type in the slot, change the neighbouring slot's sun or water by a certain amount.
 ## Then, calls the function to update the visuals of the slots so they update immediately.
 func update_neighbour_data(this_neighbour_node : Node2D, operator : String, difference : int) -> void:
+	# This makes it so the slot will not affect itself, only its neighbours
 	if(this_neighbour_node == self):
 		return
 		

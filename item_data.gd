@@ -20,7 +20,7 @@ var all_items: Array[Array] = [
 		], true, true, ["sun", 8]],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
-		], true, false],
+		], true, true, ["sun", -8]],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),
 		], true, false],
