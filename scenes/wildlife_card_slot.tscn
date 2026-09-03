@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://chs3m21mu4dxj"]
 
 [ext_resource type="Script" uid="uid://bntmv6tbmwit5" path="res://firefly-grove-puzzle-system/scenes/wildlife_card_slot.gd" id="1_beuea"]
-[ext_resource type="Texture2D" uid="uid://bo2vk2y3lj0iq" path="res://icon.svg" id="2_lf5st"]
+[ext_resource type="Texture2D" uid="uid://ctpo8m4xwj6wh" path="res://firefly-grove-puzzle-system/assets/Grid_Icon.png" id="2_lf5st"]
 
 [node name="WildlifeSlot" type="Control" unique_id=951987194]
 custom_minimum_size = Vector2(100, 100)

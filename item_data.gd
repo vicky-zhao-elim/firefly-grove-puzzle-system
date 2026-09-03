@@ -13,7 +13,7 @@ enum ItemEffect{
 ## unlocked?: bool, effects: dict
 var all_items: Array[Array] = [
 	["One", [
-		load("res://firefly-grove-puzzle-system/assets/Sunflower-1.png"), load("res://firefly-grove-puzzle-system/assets/Sunflower-2.png"), load("res://firefly-grove-puzzle-system/assets/Sunflower-3.png"), load("res://firefly-grove-puzzle-system/assets/Sunflower-4.png")
+		load("res://firefly-grove-puzzle-system/assets/sunflowers/Sunflowers-1.png"), load("res://firefly-grove-puzzle-system/assets/sunflowers/Sunflowers-2.png"), load("res://firefly-grove-puzzle-system/assets/sunflowers/Sunflowers-3.png"), load("res://firefly-grove-puzzle-system/assets/sunflowers/Sunflowers-4.png")
 		], true, {}],
 	["Three", [
 		load("res://firefly-grove-puzzle-system/assets/Pufflower.png"), load("res://firefly-grove-puzzle-system/assets/Pufflower.png"), load("res://firefly-grove-puzzle-system/assets/Pufflower.png"), load("res://firefly-grove-puzzle-system/assets/Pufflower.png")

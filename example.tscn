@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://chs3m21mu4dxj" path="res://firefly-grove-puzzle-system/scenes/wildlife_card_slot.tscn" id="1_a77ls"]
 [ext_resource type="Script" uid="uid://clxkj3llfvb0l" path="res://firefly-grove-puzzle-system/horizontal_inventory.gd" id="1_mij3m"]
 [ext_resource type="Script" uid="uid://bhcpsrggpggvn" path="res://firefly-grove-puzzle-system/main.gd" id="1_usug1"]
+[ext_resource type="Texture2D" uid="uid://oh3dwwaa14fa" path="res://firefly-grove-puzzle-system/assets/Grass.png" id="2_wdd8p"]
 [ext_resource type="PackedScene" uid="uid://dbnhlqctw5ofe" path="res://firefly-grove-puzzle-system/scenes/wildlife_placement_slot.tscn" id="3_d1qae"]
 [ext_resource type="Texture2D" uid="uid://bo2vk2y3lj0iq" path="res://icon.svg" id="4_l3sb5"]
 [ext_resource type="Script" uid="uid://cnjsrpprrgbfh" path="res://firefly-grove-puzzle-system/puzzle_group.gd" id="5_j00c0"]
@@ -51,6 +52,40 @@ metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
 [node name="Example" type="Node2D" unique_id=1851213236]
 script = ExtResource("1_usug1")
 inventory_layout = 1
+
+[node name="Background" type="Node2D" parent="." unique_id=1969503582]
+
+[node name="Grass" type="Sprite2D" parent="Background" unique_id=1877322183]
+modulate = Color(0.80070215, 0.88130146, 0.8553247, 1)
+position = Vector2(597, 125)
+texture = ExtResource("2_wdd8p")
+
+[node name="Tree2" type="Sprite2D" parent="Background" unique_id=1446491694]
+position = Vector2(1114, 39.999996)
+scale = Vector2(0.2573333, 0.28766665)
+texture = ExtResource("7_ag4ft")
+
+[node name="Tree3" type="Sprite2D" parent="Background" unique_id=988932511]
+position = Vector2(1003, 581.00006)
+scale = Vector2(0.40600002, 0.38424996)
+texture = ExtResource("7_ag4ft")
+flip_h = true
+
+[node name="Tree4" type="Sprite2D" parent="Background" unique_id=447684012]
+position = Vector2(169, 5.000061)
+scale = Vector2(0.20033331, 0.2807916)
+texture = ExtResource("7_ag4ft")
+flip_h = true
+
+[node name="Tree" type="Sprite2D" parent="Background" unique_id=1678736037]
+position = Vector2(5, 149)
+scale = Vector2(0.23466666, 0.28766665)
+texture = ExtResource("7_ag4ft")
+
+[node name="Tree5" type="Sprite2D" parent="Background" unique_id=256227523]
+position = Vector2(98, 606)
+scale = Vector2(0.2866667, 0.32916662)
+texture = ExtResource("7_ag4ft")
 
 [node name="HorizontalInventory" type="CanvasLayer" parent="." unique_id=614257888]
 unique_name_in_owner = true
@@ -193,35 +228,6 @@ position = Vector2(843, 249)
 slot_starting_values = SubResource("Resource_7lupl")
 slot_finish_condition = SubResource("Resource_54dye")
 neighbours = [NodePath("../WildlifePlacementSlot3")]
-
-[node name="Background" type="Node2D" parent="." unique_id=1969503582]
-
-[node name="Tree2" type="Sprite2D" parent="Background" unique_id=1446491694]
-position = Vector2(1114, 39.999996)
-scale = Vector2(0.2573333, 0.28766665)
-texture = ExtResource("7_ag4ft")
-
-[node name="Tree3" type="Sprite2D" parent="Background" unique_id=988932511]
-position = Vector2(1003, 581.00006)
-scale = Vector2(0.40600002, 0.38424996)
-texture = ExtResource("7_ag4ft")
-flip_h = true
-
-[node name="Tree4" type="Sprite2D" parent="Background" unique_id=447684012]
-position = Vector2(169, 5.000061)
-scale = Vector2(0.20033331, 0.2807916)
-texture = ExtResource("7_ag4ft")
-flip_h = true
-
-[node name="Tree" type="Sprite2D" parent="Background" unique_id=1678736037]
-position = Vector2(5, 149)
-scale = Vector2(0.23466666, 0.28766665)
-texture = ExtResource("7_ag4ft")
-
-[node name="Tree5" type="Sprite2D" parent="Background" unique_id=256227523]
-position = Vector2(98, 606)
-scale = Vector2(0.2866667, 0.32916662)
-texture = ExtResource("7_ag4ft")
 
 [connection signal="pressed" from="HorizontalInventory/Panel/HorizontalCoveringPanel/CloseButton" to="HorizontalInventory" method="_on_close_button_pressed"]
 [connection signal="pressed" from="HorizontalInventory/OpenButton" to="HorizontalInventory" method="_on_open_button_pressed"]

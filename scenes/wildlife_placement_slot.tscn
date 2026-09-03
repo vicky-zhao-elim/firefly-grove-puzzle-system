@@ -1,26 +1,31 @@
 [gd_scene format=3 uid="uid://dbnhlqctw5ofe"]
 
 [ext_resource type="Script" uid="uid://lgbltc66suve" path="res://firefly-grove-puzzle-system/scenes/wildlife_placement_slot.gd" id="1_no7kj"]
+[ext_resource type="Texture2D" uid="uid://bu5v7bgoodo08" path="res://firefly-grove-puzzle-system/assets/PlacementSlot.png" id="2_xx818"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_no7kj"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
-radius = 46.010868
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_as0fl"]
+radius = 32.996853
+height = 93.9392
 
 [node name="WildlifePlacementSlot" type="Node2D" unique_id=962582458]
 script = ExtResource("1_no7kj")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1488781279]
+[node name="GroundSprite" type="Sprite2D" parent="." unique_id=1488781279]
+modulate = Color(0.479195, 0.5520304, 0.42885667, 1)
+position = Vector2(0, 22)
 scale = Vector2(0.42187503, 0.390625)
-texture = SubResource("CompressedTexture2D_no7kj")
+texture = ExtResource("2_xx818")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1294923881]
+position = Vector2(0, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1184281924]
-shape = SubResource("CircleShape2D_1vivr")
+position = Vector2(0, 8)
+rotation = 1.573795
+shape = SubResource("CapsuleShape2D_as0fl")
 
 [node name="ItemSprite" type="Sprite2D" parent="." unique_id=846325227]
+position = Vector2(0, -11)
 scale = Vector2(0.2, 0.2)
 
 [node name="temp_label" type="Label" parent="." unique_id=1316455122]

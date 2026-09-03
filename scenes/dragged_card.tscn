@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://c8vaviv20xgbw"]
 
 [ext_resource type="Script" uid="uid://rma0048ushp0" path="res://firefly-grove-puzzle-system/scenes/dragged_card.gd" id="1_bxchh"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4w6we"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+[ext_resource type="Texture2D" uid="uid://ctpo8m4xwj6wh" path="res://firefly-grove-puzzle-system/assets/Grid_Icon.png" id="2_bxchh"]
 
 [node name="DraggedCard" type="Node2D" unique_id=825106454]
 script = ExtResource("1_bxchh")
 
 [node name="CardBackground" type="Sprite2D" parent="." unique_id=269156700]
-texture = SubResource("CompressedTexture2D_4w6we")
+unique_name_in_owner = true
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bxchh")
 
 [node name="CardImage" type="Sprite2D" parent="CardBackground" unique_id=1103180291]
-scale = Vector2(0.2, 0.2)
+unique_name_in_owner = true
