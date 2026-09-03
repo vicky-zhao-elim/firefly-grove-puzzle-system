@@ -3,6 +3,18 @@
 [ext_resource type="Script" uid="uid://rma0048ushp0" path="res://firefly-grove-puzzle-system/scenes/dragged_card.gd" id="1_bxchh"]
 [ext_resource type="Texture2D" uid="uid://ctpo8m4xwj6wh" path="res://firefly-grove-puzzle-system/assets/Grid_Icon.png" id="2_bxchh"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_as0fl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.17320168, 0.09463029, 0.01098659, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="DraggedCard" type="Node2D" unique_id=825106454]
 script = ExtResource("1_bxchh")
 
@@ -13,3 +25,11 @@ texture = ExtResource("2_bxchh")
 
 [node name="CardImage" type="Sprite2D" parent="CardBackground" unique_id=1103180291]
 unique_name_in_owner = true
+
+[node name="CardBorder" type="Panel" parent="." unique_id=207273221]
+offset_left = -78.0
+offset_top = -78.0
+offset_right = 79.0
+offset_bottom = 78.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_as0fl")

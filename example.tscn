@@ -51,7 +51,6 @@ metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
 
 [node name="Example" type="Node2D" unique_id=1851213236]
 script = ExtResource("1_usug1")
-inventory_layout = 1
 
 [node name="Background" type="Node2D" parent="." unique_id=1969503582]
 
@@ -120,6 +119,7 @@ vertical_scroll_mode = 0
 [node name="HorizontalInventorySlots" type="HBoxContainer" parent="HorizontalInventory/Panel/ScrollContainer" unique_id=2081701298]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="HorizontalCoveringPanel" type="Panel" parent="HorizontalInventory/Panel" unique_id=368313755]
 unique_name_in_owner = true
@@ -176,6 +176,7 @@ horizontal_scroll_mode = 0
 [node name="VerticalInventorySlots" type="VBoxContainer" parent="VerticalInventory/Panel/ScrollContainer" unique_id=1789936354]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="VerticalCoveringPanel" type="Panel" parent="VerticalInventory/Panel" unique_id=350196661]
 unique_name_in_owner = true

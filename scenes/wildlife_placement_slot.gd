@@ -19,12 +19,18 @@ var dropped_wildlife_id: int
 
 var is_slot_correct: bool = false
 
+const original_scale_of_item := 0.2
+
 
 func _ready() -> void:
 	wildlife_id = slot_starting_values.id
 	no_of_wildlife_in_slot = slot_starting_values.number_of_items
 	current_sunlight = slot_starting_values.sunlight
 	current_moisture = slot_starting_values.moisture
+	
+	if(is_slot_locked == true):
+		$GroundSprite.hide()
+	
 	update_visuals()
 
 
@@ -35,6 +41,7 @@ func _process(_delta: float) -> void:
 			dropped_wildlife_id = GlobalSelected.current_selected_item_id
 			update_slot_data()
 			update_visuals()
+			bounce_animation()
 
 
 ## Update it based on the wildlife type, number, and updated sun+water
@@ -51,6 +58,15 @@ func update_visuals() -> void:
 		
 	# Probably move this elsewhere to not mix functionalty and visuals
 	check_if_slot_is_correct()
+
+
+func bounce_animation() -> void:
+	# Bounce animation when visuals change
+	var tween = get_tree().create_tween()
+	tween.tween_property($ItemSprite, "scale:y", 0.17, 0.1)
+	tween.parallel().tween_property($ItemSprite, "scale:x", 0.23, 0.1)
+	tween.tween_property($ItemSprite, "scale:y", original_scale_of_item, 0.1)
+	tween.parallel().tween_property($ItemSprite, "scale:x", original_scale_of_item, 0.1)
 
 
 ## Resets the count to 1 if the card type is different, otherwise add one to the count of wildlife in the slot

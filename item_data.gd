@@ -12,11 +12,11 @@ enum ItemEffect{
 ## format: (Index implied), Name: String, sprite: Array (one for each number), 
 ## unlocked?: bool, effects: dict
 var all_items: Array[Array] = [
-	["One", [
+	["Sunflower", [
 		load("res://firefly-grove-puzzle-system/assets/sunflowers/Sunflowers-1.png"), load("res://firefly-grove-puzzle-system/assets/sunflowers/Sunflowers-2.png"), load("res://firefly-grove-puzzle-system/assets/sunflowers/Sunflowers-3.png"), load("res://firefly-grove-puzzle-system/assets/sunflowers/Sunflowers-4.png")
 		], true, {}],
-	["Three", [
-		load("res://firefly-grove-puzzle-system/assets/Pufflower.png"), load("res://firefly-grove-puzzle-system/assets/Pufflower.png"), load("res://firefly-grove-puzzle-system/assets/Pufflower.png"), load("res://firefly-grove-puzzle-system/assets/Pufflower.png")
+	["Triliy", [
+		load("res://firefly-grove-puzzle-system/assets/trilies/Trilies-1.png"), load("res://firefly-grove-puzzle-system/assets/trilies/Trilies-2.png"), load("res://firefly-grove-puzzle-system/assets/trilies/Trilies-3.png"), load("res://firefly-grove-puzzle-system/assets/trilies/Trilies-4.png")
 		], true, {"sun": 8, "water": 5}],
 	["Placeholder", [
 		load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"), load("res://icon.svg"),

@@ -3,6 +3,18 @@
 [ext_resource type="Script" uid="uid://bntmv6tbmwit5" path="res://firefly-grove-puzzle-system/scenes/wildlife_card_slot.gd" id="1_beuea"]
 [ext_resource type="Texture2D" uid="uid://ctpo8m4xwj6wh" path="res://firefly-grove-puzzle-system/assets/Grid_Icon.png" id="2_lf5st"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lf5st"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.17320168, 0.09463029, 0.01098659, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="WildlifeSlot" type="Control" unique_id=951987194]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
@@ -22,6 +34,15 @@ offset_right = 102.0
 offset_bottom = 101.0
 mouse_filter = 2
 expand_mode = 1
+
+[node name="CardBorder" type="Panel" parent="." unique_id=974754118]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 103.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lf5st")
 
 [connection signal="mouse_entered" from="TextureRectBackground" to="." method="_on_texture_rect_mouse_entered"]
 [connection signal="mouse_exited" from="TextureRectBackground" to="." method="_on_texture_rect_mouse_exited"]

@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 		self.modulate = Color(0.725, 0.725, 0.725, 1.0)
 		$TextureRectBackground.rotation_degrees = move_toward($TextureRectBackground.rotation_degrees, -5, rotation_speed)
 		$TextureRectImage.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, -5, rotation_speed)
+		$CardBorder.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, -5, rotation_speed)
 		if(Input.is_action_just_pressed("click")):
 			picked_up_card.emit(wildlife_id)
 	# Else, reset to the normal values
@@ -30,6 +31,7 @@ func _process(_delta: float) -> void:
 		self.modulate = Color.WHITE
 		$TextureRectBackground.rotation_degrees = move_toward($TextureRectBackground.rotation_degrees, 0, rotation_speed)
 		$TextureRectImage.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, 0, rotation_speed)
+		$CardBorder.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, 0, rotation_speed)
 
 
 ## Function that runs when the mouse enters the card.

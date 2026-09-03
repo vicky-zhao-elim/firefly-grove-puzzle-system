@@ -53,6 +53,7 @@ func _process(_delta: float) -> void:
 			GlobalSelected.is_card_held = false
 			tween = get_tree().create_tween()
 			tween.tween_property(self, "scale", Vector2(0.5, 0.5), 0.15)
+			tween.parallel().tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.15)
 			tween.tween_callback(queue_free)
 		else:
 			GlobalSelected.is_card_held = false
