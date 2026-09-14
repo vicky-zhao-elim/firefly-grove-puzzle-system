@@ -21,7 +21,7 @@ position = Vector2(0, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1184281924]
 position = Vector2(0, 8)
-rotation = 1.573795
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_as0fl")
 
 [node name="ItemSprite" type="Sprite2D" parent="." unique_id=846325227]

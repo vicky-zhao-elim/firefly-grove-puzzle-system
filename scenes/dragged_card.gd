@@ -19,6 +19,9 @@ func _ready() -> void:
 	global_position = get_global_mouse_position()
 	GlobalSelected.is_card_held = true
 	%CardImage.texture = ItemData.all_items[wildlife_id][ItemData.SPRITE][0]
+	# It is remove and it is not in the items array so specifically get the shovel icon
+	if(wildlife_id == -1):
+		%CardImage.texture = load("res://firefly-grove-puzzle-system/assets/Shovel.png")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

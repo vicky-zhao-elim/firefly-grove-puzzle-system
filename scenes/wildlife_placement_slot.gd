@@ -46,8 +46,10 @@ func _process(_delta: float) -> void:
 
 ## Update it based on the wildlife type, number, and updated sun+water
 func update_visuals() -> void:
-	# Do an animation to gradually change this value?
-	self.modulate = Color(1, 1 - float(current_moisture) / 10.0, 1 - float(current_sunlight) / 10.0)
+	# Animation transition colour
+	var tween = get_tree().create_tween()
+	var new_colour_modulate: Color = Color(1, 1 - float(current_moisture) / 10.0, 1 - float(current_sunlight) / 10.0)
+	tween.tween_property(self, "modulate", new_colour_modulate, 0.3)
 	
 	if(no_of_wildlife_in_slot == 0):
 		$temp_label.text = "empty " + str(no_of_wildlife_in_slot)
@@ -56,7 +58,7 @@ func update_visuals() -> void:
 		$temp_label.text = ItemData.all_items[wildlife_id][ItemData.NAME] + " " + str(no_of_wildlife_in_slot)
 		$ItemSprite.texture = ItemData.all_items[wildlife_id][ItemData.SPRITE][no_of_wildlife_in_slot - 1]
 		
-	# Probably move this elsewhere to not mix functionalty and visuals
+	# TODO Probably move this elsewhere to not mix functionalty and visuals
 	check_if_slot_is_correct()
 
 
@@ -115,7 +117,6 @@ func update_neighbour_data(this_neighbour_node : Node2D, operator: String, diffe
 	if(ItemData.all_items[wildlife_id][ItemData.EFFECT].is_empty() == false):
 		var effects: Dictionary = ItemData.all_items[wildlife_id][ItemData.EFFECT]
 		for effect_type: String in effects.keys():
-			#TODO Maybe don't do if statements and just change it directly?
 			if(effect_type == "sun"):
 				this_neighbour_node.current_sunlight += effects[effect_type] * difference * operator_multiplier
 			elif(effect_type == "water"):

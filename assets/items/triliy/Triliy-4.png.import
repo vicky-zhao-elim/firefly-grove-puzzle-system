@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c164aquhiv3h8"
-path="res://.godot/imported/Sunflowers-3.png-c1cc2d4b3953452404f6d77d153a41f6.ctex"
+uid="uid://csvl3x5ybb4be"
+path="res://.godot/imported/Triliy-4.png-4fff82e057600ff59f625b94ae4c95f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://firefly-grove-puzzle-system/assets/sunflowers/Sunflowers-3.png"
-dest_files=["res://.godot/imported/Sunflowers-3.png-c1cc2d4b3953452404f6d77d153a41f6.ctex"]
+source_file="res://firefly-grove-puzzle-system/assets/items/triliy/Triliy-4.png"
+dest_files=["res://.godot/imported/Triliy-4.png-4fff82e057600ff59f625b94ae4c95f2.ctex"]
 
 [params]
 

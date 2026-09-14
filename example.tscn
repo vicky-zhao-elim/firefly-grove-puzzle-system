@@ -3,16 +3,27 @@
 [ext_resource type="PackedScene" uid="uid://chs3m21mu4dxj" path="res://firefly-grove-puzzle-system/scenes/wildlife_card_slot.tscn" id="1_a77ls"]
 [ext_resource type="Script" uid="uid://clxkj3llfvb0l" path="res://firefly-grove-puzzle-system/horizontal_inventory.gd" id="1_mij3m"]
 [ext_resource type="Script" uid="uid://bhcpsrggpggvn" path="res://firefly-grove-puzzle-system/main.gd" id="1_usug1"]
-[ext_resource type="Texture2D" uid="uid://oh3dwwaa14fa" path="res://firefly-grove-puzzle-system/assets/Grass.png" id="2_wdd8p"]
+[ext_resource type="Texture2D" uid="uid://b40d2732vhhi0" path="res://firefly-grove-puzzle-system/assets/Grass2.png" id="2_wdd8p"]
 [ext_resource type="PackedScene" uid="uid://dbnhlqctw5ofe" path="res://firefly-grove-puzzle-system/scenes/wildlife_placement_slot.tscn" id="3_d1qae"]
 [ext_resource type="Texture2D" uid="uid://bo2vk2y3lj0iq" path="res://icon.svg" id="4_l3sb5"]
 [ext_resource type="Script" uid="uid://cnjsrpprrgbfh" path="res://firefly-grove-puzzle-system/puzzle_group.gd" id="5_j00c0"]
 [ext_resource type="Script" uid="uid://c44hwm0ghh0t4" path="res://firefly-grove-puzzle-system/vertical_inventory.gd" id="5_mofwc"]
+[ext_resource type="Texture2D" uid="uid://w7qriboao2k8" path="res://firefly-grove-puzzle-system/assets/Shovel.png" id="6_54dye"]
 [ext_resource type="Texture2D" uid="uid://dcj7s7umon7xr" path="res://firefly-grove-puzzle-system/assets/Tree.png" id="7_ag4ft"]
+[ext_resource type="Texture2D" uid="uid://16jll4etbmqh" path="res://firefly-grove-puzzle-system/assets/BagClosed.png" id="7_qtds1"]
 [ext_resource type="Script" uid="uid://b1dfvhej4nmhx" path="res://firefly-grove-puzzle-system/resources/slot_data.gd" id="7_twu1f"]
+[ext_resource type="Texture2D" uid="uid://b0f1lgbbq4btf" path="res://firefly-grove-puzzle-system/assets/BagOpen.png" id="8_54dye"]
+[ext_resource type="Texture2D" uid="uid://tgcuj87o8clw" path="res://firefly-grove-puzzle-system/assets/items/triliy/Triliy-1.png" id="14_7lupl"]
+[ext_resource type="Script" uid="uid://c6hhypdnpj11h" path="res://firefly-grove-puzzle-system/test.gd" id="15_f7def"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mij3m"]
 bg_color = Color(0.43466252, 0.30991343, 0.21771893, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5gy4"]
+bg_color = Color(0.6750475, 0.47374713, 0.2619059, 1)
+
+[sub_resource type="Theme" id="Theme_1vivr"]
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_v5gy4")
 
 [sub_resource type="Resource" id="Resource_mofwc"]
 script = ExtResource("7_twu1f")
@@ -56,21 +67,25 @@ script = ExtResource("1_usug1")
 
 [node name="Grass" type="Sprite2D" parent="Background" unique_id=1877322183]
 modulate = Color(0.80070215, 0.88130146, 0.8553247, 1)
-position = Vector2(597, 125)
+position = Vector2(592, 392.99997)
+scale = Vector2(0.874, 0.9166667)
 texture = ExtResource("2_wdd8p")
 
 [node name="Tree2" type="Sprite2D" parent="Background" unique_id=1446491694]
+modulate = Color(0.68168, 0.864125, 0.76437896, 1)
 position = Vector2(1114, 39.999996)
 scale = Vector2(0.2573333, 0.28766665)
 texture = ExtResource("7_ag4ft")
 
 [node name="Tree3" type="Sprite2D" parent="Background" unique_id=988932511]
+modulate = Color(0.7375024, 0.8770526, 0.82303524, 1)
 position = Vector2(1003, 581.00006)
 scale = Vector2(0.40600002, 0.38424996)
 texture = ExtResource("7_ag4ft")
 flip_h = true
 
 [node name="Tree4" type="Sprite2D" parent="Background" unique_id=447684012]
+modulate = Color(0.68168, 0.864125, 0.76437896, 1)
 position = Vector2(169, 5.000061)
 scale = Vector2(0.20033331, 0.2807916)
 texture = ExtResource("7_ag4ft")
@@ -82,13 +97,13 @@ scale = Vector2(0.23466666, 0.28766665)
 texture = ExtResource("7_ag4ft")
 
 [node name="Tree5" type="Sprite2D" parent="Background" unique_id=256227523]
+modulate = Color(0.7678973, 0.8978555, 0.51014304, 1)
 position = Vector2(98, 606)
 scale = Vector2(0.2866667, 0.32916662)
 texture = ExtResource("7_ag4ft")
 
 [node name="HorizontalInventory" type="CanvasLayer" parent="." unique_id=614257888]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("1_mij3m")
 
 [node name="Panel" type="Panel" parent="HorizontalInventory" unique_id=1890694965]
@@ -105,7 +120,7 @@ offset_top = -117.0
 offset_right = 124.0
 offset_bottom = -17.0
 wildlife_id = -1
-card_texture = ExtResource("4_l3sb5")
+card_texture = ExtResource("6_54dye")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HorizontalInventory/Panel" unique_id=377518485]
 clip_contents = false
@@ -119,6 +134,7 @@ vertical_scroll_mode = 0
 [node name="HorizontalInventorySlots" type="HBoxContainer" parent="HorizontalInventory/Panel/ScrollContainer" unique_id=2081701298]
 unique_name_in_owner = true
 layout_mode = 2
+theme = SubResource("Theme_1vivr")
 theme_override_constants/separation = 10
 
 [node name="HorizontalCoveringPanel" type="Panel" parent="HorizontalInventory/Panel" unique_id=368313755]
@@ -128,21 +144,27 @@ offset_right = 178.0
 offset_bottom = 135.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mij3m")
 
-[node name="CloseButton" type="Button" parent="HorizontalInventory/Panel/HorizontalCoveringPanel" unique_id=221725685]
+[node name="CloseButton" type="TextureButton" parent="HorizontalInventory/Panel/HorizontalCoveringPanel" unique_id=1231001609]
 layout_mode = 0
 offset_left = 22.0
 offset_top = 18.0
-offset_right = 157.0
-offset_bottom = 117.0
-text = "Toggle"
+offset_right = 122.0
+offset_bottom = 118.0
+texture_normal = ExtResource("8_54dye")
+texture_hover = ExtResource("7_qtds1")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="OpenButton" type="Button" parent="HorizontalInventory" unique_id=1355837661]
+[node name="OpenButton" type="TextureButton" parent="HorizontalInventory" unique_id=700699310]
 visible = false
-offset_left = 49.0
-offset_top = 613.0
-offset_right = 129.0
-offset_bottom = 644.0
-text = "^"
+offset_left = 10.0
+offset_top = 400.0
+offset_right = 110.0
+offset_bottom = 500.0
+texture_normal = ExtResource("7_qtds1")
+texture_hover = ExtResource("8_54dye")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="VerticalInventory" type="CanvasLayer" parent="." unique_id=1515735964]
 unique_name_in_owner = true
@@ -229,6 +251,13 @@ position = Vector2(843, 249)
 slot_starting_values = SubResource("Resource_7lupl")
 slot_finish_condition = SubResource("Resource_54dye")
 neighbours = [NodePath("../WildlifePlacementSlot3")]
+
+[node name="Spinspinspin" type="Sprite2D" parent="." unique_id=350283862]
+modulate = Color(1, 1, 1, 0.24705882)
+position = Vector2(329.2352, 322)
+rotation = 233.4815
+texture = ExtResource("14_7lupl")
+script = ExtResource("15_f7def")
 
 [connection signal="pressed" from="HorizontalInventory/Panel/HorizontalCoveringPanel/CloseButton" to="HorizontalInventory" method="_on_close_button_pressed"]
 [connection signal="pressed" from="HorizontalInventory/OpenButton" to="HorizontalInventory" method="_on_open_button_pressed"]

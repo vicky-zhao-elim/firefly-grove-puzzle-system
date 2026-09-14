@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csvl3x5ybb4be"
-path="res://.godot/imported/Trilies-4.png-a3c02e3a2157568cf30afe0b6f9e7158.ctex"
+uid="uid://16jll4etbmqh"
+path="res://.godot/imported/BagClosed.png-75c2a5419d378520c6c566b6b7926361.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://firefly-grove-puzzle-system/assets/trilies/Trilies-4.png"
-dest_files=["res://.godot/imported/Trilies-4.png-a3c02e3a2157568cf30afe0b6f9e7158.ctex"]
+source_file="res://firefly-grove-puzzle-system/assets/BagClosed.png"
+dest_files=["res://.godot/imported/BagClosed.png-75c2a5419d378520c6c566b6b7926361.ctex"]
 
 [params]
 

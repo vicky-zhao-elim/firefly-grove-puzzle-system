@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tgcuj87o8clw"
-path="res://.godot/imported/Trilies-1.png-dc34a6bfa0331be55c3c66a407b816b8.ctex"
+uid="uid://b1js5fnnsnywg"
+path="res://.godot/imported/Glowberry-3.png-142bf084a17f042034d8c28666f46116.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://firefly-grove-puzzle-system/assets/trilies/Trilies-1.png"
-dest_files=["res://.godot/imported/Trilies-1.png-dc34a6bfa0331be55c3c66a407b816b8.ctex"]
+source_file="res://firefly-grove-puzzle-system/assets/items/glowberry/Glowberry-3.png"
+dest_files=["res://.godot/imported/Glowberry-3.png-142bf084a17f042034d8c28666f46116.ctex"]
 
 [params]
 
