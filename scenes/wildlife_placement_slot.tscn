@@ -11,8 +11,8 @@ height = 93.9392
 script = ExtResource("1_no7kj")
 
 [node name="GroundSprite" type="Sprite2D" parent="." unique_id=1488781279]
-modulate = Color(0.479195, 0.5520304, 0.42885667, 1)
-position = Vector2(0, 22)
+modulate = Color(0.47843137, 0.5529412, 0.42745098, 0.8862745)
+position = Vector2(0, 31)
 scale = Vector2(0.42187503, 0.390625)
 texture = ExtResource("2_xx818")
 

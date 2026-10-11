@@ -23,4 +23,5 @@ func _process(_delta: float) -> void:
 		puzzle_group_complete.emit(puzzle_id)
 		for child in get_children():
 			child.is_slot_locked = true
+			child.fade_ground_out()
 			

@@ -14,7 +14,8 @@ func _ready() -> void:
 	%HorizontalCoveringPanel.size.y = $Panel.size.y
 	%HorizontalCoveringPanel.global_position.y = $Panel.position.y 
 	
-	$OpenButton.position.y = screen_size.y - $OpenButton.size.y
+	#$OpenButton.position.y = screen_size.y - $OpenButton.size.y
+	$OpenButton.global_position = $Panel/HorizontalCoveringPanel/CloseButton.global_position
 	
 	$Panel/ScrollContainer.custom_maximum_size.x = screen_size.x - $Panel/ScrollContainer.position.x
 	
@@ -45,8 +46,10 @@ func _on_open_button_pressed() -> void:
 ## Function that runs when the close button is pressed.
 func _on_close_button_pressed() -> void:
 	$OpenButton.show()
+	$OpenButton.disabled = true
 	var tween = get_tree().create_tween()
 	tween.tween_property($Panel, "position:y", 2000, tween_time)
 	tween.parallel().tween_property($Panel, "modulate", Color(0.0, 0.0, 0.0, 0.0), tween_time / 2)
 	await tween.finished
 	$Panel.hide()
+	$OpenButton.disabled = false
