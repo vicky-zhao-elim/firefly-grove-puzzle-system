@@ -1,10 +1,11 @@
 extends Node2D
 
-@onready var dragged_scene: PackedScene = preload("res://firefly-grove-puzzle-system/scenes/dragged_card.tscn")
-
 enum InventoryLayout{
 	HORIZONTAL, VERTICAL
 }
+
+@onready var dragged_scene: PackedScene = preload("res://firefly-grove-puzzle-system/scenes/dragged_card.tscn")
+@onready var win_scene: PackedScene = preload("res://firefly-grove-puzzle-system/scenes/win_scene.tscn")
 
 @export var inventory_layout: int = InventoryLayout.HORIZONTAL
 
@@ -37,3 +38,8 @@ func add_picked_up_card(card_id : int) -> void:
 		%HorizontalInventory.add_child(new_dragged_scene)
 	elif(inventory_layout == InventoryLayout.VERTICAL):
 		%VerticalInventory.add_child(new_dragged_scene)
+
+func on_puzzle_group_complete(puzzle_group: int) -> void:
+	print("puzzle group " + str(puzzle_group) + " complete")
+	var new_win_scene: Node2D = win_scene.instantiate()
+	add_child(new_win_scene)

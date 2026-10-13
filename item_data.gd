@@ -4,7 +4,7 @@ enum {
 	NAME, SPRITE, IS_UNLOCKED, EFFECT
 }
 
-const load_path: String = "res://firefly-grove-puzzle-system/assets/items/"
+const LOAD_PATH: String = "res://firefly-grove-puzzle-system/assets/items/"
 
 ## Returns an array of paths to an image, in the format:
 ## "res://firefly-grove-puzzle-system/assets/item_name.lower()/item_name-i.png"
@@ -14,7 +14,7 @@ func get_load_paths(item_name: String) -> Array[Resource]:
 	if(item_name.to_lower() == item_name):
 		print("Warning: item name in get_load_paths is inputed in lowercase. Make sure it matches the file name.")
 	for i in range(4):
-		load_paths[i] = load(load_path + item_name.to_lower() + "/" + item_name + "-" + str(i + 1) + ".png")
+		load_paths[i] = load(LOAD_PATH + item_name.to_lower() + "/" + item_name + "-" + str(i + 1) + ".png")
 	return load_paths
 
 ## Array of arrays storing all items. Each array represents an item, in the following

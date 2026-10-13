@@ -1,8 +1,8 @@
 extends Node2D
 
-const skew_speed := 0.005
-const scale_speed := 0.05
-const rotation_speed := 1.5
+const SKEW_SPEED := 0.005
+const SCALE_SPEED := 0.05
+const ROTATION_SPEED := 1.5
 
 ## The ID of this card
 var wildlife_id: int
@@ -31,15 +31,15 @@ func _process(_delta: float) -> void:
 	
 	# If hovering over a valid slot, do a small animation and decrease the opacity
 	if(GlobalSelected.is_hovering_on_placement_slot == true):
-		scale.x = move_toward(scale.x, 0.8, scale_speed / 2)
-		scale.y = move_toward(scale.y, 0.8, scale_speed / 2)
-		rotation_degrees = move_toward(rotation_degrees, 1, rotation_speed)
+		scale.x = move_toward(scale.x, 0.8, SCALE_SPEED / 2)
+		scale.y = move_toward(scale.y, 0.8, SCALE_SPEED / 2)
+		rotation_degrees = move_toward(rotation_degrees, 1, ROTATION_SPEED)
 		modulate = Color(0.675, 0.675, 0.675, 0.75)
 	# Else, return to normal
 	else:
-		scale.x = move_toward(scale.x, 1.0, scale_speed / 2)
-		scale.y = move_toward(scale.y, 1.0, scale_speed / 2)
-		rotation_degrees = move_toward(rotation_degrees, 0, rotation_speed)
+		scale.x = move_toward(scale.x, 1.0, SCALE_SPEED / 2)
+		scale.y = move_toward(scale.y, 1.0, SCALE_SPEED / 2)
+		rotation_degrees = move_toward(rotation_degrees, 0, ROTATION_SPEED)
 		modulate = Color.WHITE
 		
 	# When the player lets go of the mouse, play an animation depending on where it was released
@@ -70,5 +70,5 @@ func _process(_delta: float) -> void:
 		var y_pos_offset = (global_position - prev_mouse_pos).y
 		clamp(y_pos_offset, -90, 90)
 		prev_mouse_pos = global_position
-		skew = move_toward(skew, deg_to_rad(x_pos_offset), skew_speed)
-		rotation_degrees = move_toward(rotation_degrees, y_pos_offset, rotation_speed)
+		skew = move_toward(skew, deg_to_rad(x_pos_offset), SKEW_SPEED)
+		rotation_degrees = move_toward(rotation_degrees, y_pos_offset, ROTATION_SPEED)

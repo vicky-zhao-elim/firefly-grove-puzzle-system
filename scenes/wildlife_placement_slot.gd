@@ -1,5 +1,7 @@
 extends Node2D
 
+const ORIGINAL_SCALE_OF_TEM := 0.2
+
 @export var slot_starting_values: SlotData
 
 @export var is_slot_locked: bool = false
@@ -18,8 +20,6 @@ var mouse_in_slot: int = 0
 var dropped_wildlife_id: int
 
 var is_slot_correct: bool = false
-
-const original_scale_of_item := 0.2
 
 
 func _ready() -> void:
@@ -66,8 +66,8 @@ func do_bounce_animation() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($ItemSprite, "scale:y", 0.17, 0.1)
 	tween.parallel().tween_property($ItemSprite, "scale:x", 0.23, 0.1)
-	tween.tween_property($ItemSprite, "scale:y", original_scale_of_item, 0.1)
-	tween.parallel().tween_property($ItemSprite, "scale:x", original_scale_of_item, 0.1)
+	tween.tween_property($ItemSprite, "scale:y", ORIGINAL_SCALE_OF_TEM, 0.1)
+	tween.parallel().tween_property($ItemSprite, "scale:x", ORIGINAL_SCALE_OF_TEM, 0.1)
 
 
 func fade_ground_out() -> void:

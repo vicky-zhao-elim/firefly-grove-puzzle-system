@@ -29,11 +29,13 @@ position = Vector2(0, -11)
 scale = Vector2(0.2, 0.2)
 
 [node name="temp_label" type="Label" parent="." unique_id=1316455122]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "temp"
 
 [node name="sun_value_label" type="Label" parent="." unique_id=1256869442]
+visible = false
 offset_left = 1.0
 offset_top = 19.0
 offset_right = 42.0

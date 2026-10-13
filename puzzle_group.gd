@@ -1,7 +1,7 @@
 extends Node2D
 
 ## Signal emitted from puzzle_group.gd when all children slots are correct.
-## Recieved by ??
+## Recieved by the main game
 signal puzzle_group_complete
 
 @export var puzzle_id: int

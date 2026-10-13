@@ -9,7 +9,7 @@ signal picked_up_card
 
 var is_mouse_in_slot: int = 0
 
-const rotation_speed := 1.5
+const ROTATION_SPEED := 1.5
 
 
 func _ready() -> void:
@@ -21,17 +21,17 @@ func _process(_delta: float) -> void:
 	# If the mouse is on the card, play an animation to indicate this.
 	if(is_mouse_in_slot == 1):
 		self.modulate = Color(0.725, 0.725, 0.725, 1.0)
-		$TextureRectBackground.rotation_degrees = move_toward($TextureRectBackground.rotation_degrees, -5, rotation_speed)
-		$TextureRectImage.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, -5, rotation_speed)
-		$CardBorder.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, -5, rotation_speed)
+		$TextureRectBackground.rotation_degrees = move_toward($TextureRectBackground.rotation_degrees, -5, ROTATION_SPEED)
+		$TextureRectImage.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, -5, ROTATION_SPEED)
+		$CardBorder.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, -5, ROTATION_SPEED)
 		if(Input.is_action_just_pressed("click")):
 			picked_up_card.emit(wildlife_id)
 	# Else, reset to the normal values
 	else:
 		self.modulate = Color.WHITE
-		$TextureRectBackground.rotation_degrees = move_toward($TextureRectBackground.rotation_degrees, 0, rotation_speed)
-		$TextureRectImage.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, 0, rotation_speed)
-		$CardBorder.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, 0, rotation_speed)
+		$TextureRectBackground.rotation_degrees = move_toward($TextureRectBackground.rotation_degrees, 0, ROTATION_SPEED)
+		$TextureRectImage.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, 0, ROTATION_SPEED)
+		$CardBorder.rotation_degrees = move_toward($TextureRectImage.rotation_degrees, 0, ROTATION_SPEED)
 
 
 ## Function that runs when the mouse enters the card.
