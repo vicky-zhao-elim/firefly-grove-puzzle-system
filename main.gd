@@ -5,11 +5,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	%HorizontalInventory.show()
-	for child in %HorizontalInventorySlots.get_children():
+	%Inventory.show()
+	for child in %InventorySlots.get_children():
 		child.picked_up_card.connect(add_picked_up_card)
 	%HorizontalRemoveWildlifeSlot.picked_up_card.connect(add_picked_up_card)
-
+	
+	for i in range($PuzzleGroups.get_child_count()):
+		var current_puzzle_group: Node2D = $PuzzleGroups.get_child(i)
+		current_puzzle_group.puzzle_id = i
+		current_puzzle_group.puzzle_group_complete.connect(on_puzzle_group_complete)
 
 ## If a card has been picked up (signal from wildlife_card_slot.gd), 
 ## add the scene for a dragged card.
@@ -17,7 +21,7 @@ func add_picked_up_card(card_id : int) -> void:
 	var new_dragged_scene = dragged_scene.instantiate()
 	new_dragged_scene.wildlife_id = card_id
 	GlobalSelected.current_selected_item_id = card_id
-	%HorizontalInventory.add_child(new_dragged_scene)
+	%Inventory.add_child(new_dragged_scene)
 
 func on_puzzle_group_complete(puzzle_group: int) -> void:
 	print("puzzle group " + str(puzzle_group) + " complete")

@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	$Panel/ScrollContainer.custom_maximum_size.x = screen_size.x - $Panel/ScrollContainer.position.x
 	
-	for child in %HorizontalInventorySlots.get_children():
+	for child in %InventorySlots.get_children():
 		child.queue_free()
 		
 	for i in range(ItemData.all_items.size()):
@@ -30,7 +30,7 @@ func _ready() -> void:
 		new_card.wildlife_id = i
 		new_card.card_texture = item[ItemData.SPRITE][0]
 		if(item[ItemData.IS_UNLOCKED]):
-			%HorizontalInventorySlots.add_child(new_card)
+			%InventorySlots.add_child(new_card)
 
 ## Function that runs when the open button is pressed.
 func _on_open_button_pressed() -> void:
