@@ -24,7 +24,6 @@ func _ready() -> void:
 		%CardImage.texture = load("res://firefly-grove-puzzle-system/assets/Shovel.png")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if(is_queued_for_deletion()): return
 	if(disabled_self == true): return

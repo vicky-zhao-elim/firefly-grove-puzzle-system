@@ -35,7 +35,6 @@ func _ready() -> void:
 	check_if_slot_is_correct()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if(mouse_in_slot > 0 and is_slot_locked == false):
 		if(Input.is_action_just_released("click") && GlobalSelected.is_card_held):
@@ -128,10 +127,6 @@ func update_neighbour_data(this_neighbour_node: Node2D, operator: String, differ
 				this_neighbour_node.current_moisture += effects[effect_type] * difference * operator_multiplier
 			else:
 				printerr("Invalid effect type")
-		
-	else:
-		pass
-		#print("no effect")
 	this_neighbour_node.update_visuals()
 	this_neighbour_node.update_debug_labels()
 	this_neighbour_node.check_if_slot_is_correct()

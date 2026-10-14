@@ -16,7 +16,6 @@ func _ready() -> void:
 	$TextureRectImage.texture = card_texture
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# If the mouse is on the card, play an animation to indicate this.
 	if(is_mouse_in_slot == 1):

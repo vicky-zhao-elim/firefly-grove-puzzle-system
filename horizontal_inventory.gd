@@ -7,8 +7,6 @@ var card_scene: PackedScene = preload("res://firefly-grove-puzzle-system/scenes/
 var screen_size: Vector2
 
 func _ready() -> void:
-	# Change window size to test
-	
 	screen_size = get_viewport().get_visible_rect().size
 	
 	$Panel.position.y = screen_size.y - $Panel.size.y
@@ -16,7 +14,6 @@ func _ready() -> void:
 	%HorizontalCoveringPanel.size.y = $Panel.size.y
 	%HorizontalCoveringPanel.global_position.y = $Panel.position.y 
 	
-	#$OpenButton.position.y = screen_size.y - $OpenButton.size.y
 	$OpenButton.global_position = $Panel/HorizontalCoveringPanel/CloseButton.global_position
 	
 	$Panel/ScrollContainer.custom_maximum_size.x = screen_size.x - $Panel/ScrollContainer.position.x

@@ -3,7 +3,6 @@ extends Node2D
 @onready var dragged_scene: PackedScene = preload("res://firefly-grove-puzzle-system/scenes/dragged_card.tscn")
 @onready var win_scene: PackedScene = preload("res://firefly-grove-puzzle-system/scenes/win_scene.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%Inventory.show()
 	for child in %InventorySlots.get_children():
