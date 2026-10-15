@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://bhcpsrggpggvn" path="res://firefly-grove-puzzle-system/main.gd" id="1_usug1"]
 [ext_resource type="Texture2D" uid="uid://cqqgjy20qxfa2" path="res://firefly-grove-puzzle-system/assets/scenary/Grass_Patterns-1.png" id="2_berrb"]
 [ext_resource type="Script" uid="uid://btoppda4pwnwj" path="res://firefly-grove-puzzle-system/camera.gd" id="2_ie24o"]
-[ext_resource type="Texture2D" uid="uid://b40d2732vhhi0" path="res://firefly-grove-puzzle-system/assets/Grass2.png" id="2_wdd8p"]
 [ext_resource type="Texture2D" uid="uid://b7o3fgluyx1a4" path="res://firefly-grove-puzzle-system/assets/scenary/Grass_Patterns-5.png" id="3_aplna"]
 [ext_resource type="PackedScene" uid="uid://dbnhlqctw5ofe" path="res://firefly-grove-puzzle-system/scenes/wildlife_placement_slot.tscn" id="3_d1qae"]
 [ext_resource type="Texture2D" uid="uid://b5xkyhsoq3dl" path="res://firefly-grove-puzzle-system/assets/Tree1.png" id="3_f7def"]
@@ -18,6 +17,7 @@
 [ext_resource type="Script" uid="uid://b1dfvhej4nmhx" path="res://firefly-grove-puzzle-system/resources/slot_data.gd" id="7_twu1f"]
 [ext_resource type="Texture2D" uid="uid://b0f1lgbbq4btf" path="res://firefly-grove-puzzle-system/assets/BagOpen.png" id="8_54dye"]
 [ext_resource type="Texture2D" uid="uid://8j2137mpjkkh" path="res://firefly-grove-puzzle-system/assets/scenary/Grass_Patterns-2.png" id="8_kk2lb"]
+[ext_resource type="Texture2D" uid="uid://bu5v7bgoodo08" path="res://firefly-grove-puzzle-system/assets/PlacementSlot.png" id="10_berrb"]
 
 [sub_resource type="Resource" id="Resource_mofwc"]
 script = ExtResource("7_twu1f")
@@ -59,6 +59,36 @@ metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
 [sub_resource type="Resource" id="Resource_kk2lb"]
 script = ExtResource("7_twu1f")
 number_of_items = 4
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_berrb"]
+script = ExtResource("7_twu1f")
+id = 3
+number_of_items = 1
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_aplna"]
+script = ExtResource("7_twu1f")
+id = 3
+number_of_items = 1
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_rgfws"]
+script = ExtResource("7_twu1f")
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_ie24o"]
+script = ExtResource("7_twu1f")
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_n1sas"]
+script = ExtResource("7_twu1f")
+id = 3
+number_of_items = 1
+metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
+
+[sub_resource type="Resource" id="Resource_ujxky"]
+script = ExtResource("7_twu1f")
 metadata/_custom_type_script = "uid://b1dfvhej4nmhx"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mij3m"]
@@ -104,6 +134,11 @@ position = Vector2(196.37497, 462.625)
 scale = Vector2(0.275964, 0.17788792)
 texture = ExtResource("5_rgfws")
 
+[node name="GrassPatches2" type="Sprite2D" parent="Background/Grass" unique_id=1265993301]
+position = Vector2(1442.9999, 282.99997)
+scale = Vector2(0.275964, 0.17788792)
+texture = ExtResource("5_rgfws")
+
 [node name="GrassPatches3" type="Sprite2D" parent="Background/Grass" unique_id=2051974945]
 position = Vector2(730.00006, 76)
 scale = Vector2(0.30475572, 0.19497608)
@@ -120,43 +155,76 @@ position = Vector2(1052.0001, -550)
 scale = Vector2(7.40617, 6.0580997)
 texture = ExtResource("8_kk2lb")
 
-[node name="GrassOld" type="Sprite2D" parent="Background" unique_id=1877322183]
-visible = false
-modulate = Color(0.80070215, 0.88130146, 0.8553247, 1)
-position = Vector2(592, 392.99997)
-scale = Vector2(0.874, 0.9166667)
-texture = ExtResource("2_wdd8p")
+[node name="GrassPatterns3" type="Sprite2D" parent="Background/Grass" unique_id=1031381632]
+position = Vector2(2157, 503)
+texture = ExtResource("8_kk2lb")
 
-[node name="Tree2" type="Sprite2D" parent="Background" unique_id=1446491694]
+[node name="Trees" type="Node2D" parent="Background" unique_id=1387424899]
+
+[node name="Tree2" type="Sprite2D" parent="Background/Trees" unique_id=1446491694]
 modulate = Color(0.68168, 0.864125, 0.76437896, 1)
 position = Vector2(1114, 39.999996)
 scale = Vector2(0.2573333, 0.28766665)
 texture = ExtResource("3_f7def")
 
-[node name="Tree3" type="Sprite2D" parent="Background" unique_id=988932511]
+[node name="Tree3" type="Sprite2D" parent="Background/Trees" unique_id=988932511]
 modulate = Color(0.7375024, 0.8770526, 0.82303524, 1)
 position = Vector2(1003, 581.00006)
 scale = Vector2(0.40600002, 0.38424996)
 texture = ExtResource("3_f7def")
 flip_h = true
 
-[node name="Tree4" type="Sprite2D" parent="Background" unique_id=447684012]
+[node name="Tree4" type="Sprite2D" parent="Background/Trees" unique_id=447684012]
 modulate = Color(0.68168, 0.864125, 0.76437896, 1)
 position = Vector2(169, 5.000061)
 scale = Vector2(0.20033331, 0.2807916)
 texture = ExtResource("3_f7def")
 flip_h = true
 
-[node name="Tree" type="Sprite2D" parent="Background" unique_id=1678736037]
+[node name="Tree6" type="Sprite2D" parent="Background/Trees" unique_id=1329250149]
+modulate = Color(0.68168, 0.864125, 0.76437896, 1)
+position = Vector2(1626.0001, 88)
+scale = Vector2(0.4003321, 0.2807916)
+texture = ExtResource("3_f7def")
+flip_h = true
+
+[node name="Tree" type="Sprite2D" parent="Background/Trees" unique_id=1678736037]
 position = Vector2(5, 149)
 scale = Vector2(0.23466666, 0.28766665)
 texture = ExtResource("3_f7def")
 
-[node name="Tree5" type="Sprite2D" parent="Background" unique_id=256227523]
+[node name="Tree7" type="Sprite2D" parent="Background/Trees" unique_id=216811447]
+position = Vector2(1524, 722.00006)
+scale = Vector2(0.35437194, 0.39506847)
+texture = ExtResource("3_f7def")
+
+[node name="Tree5" type="Sprite2D" parent="Background/Trees" unique_id=256227523]
 modulate = Color(0.7678973, 0.8978555, 0.51014304, 1)
 position = Vector2(98, 606)
 scale = Vector2(0.2866667, 0.32916662)
 texture = ExtResource("3_f7def")
+
+[node name="Arrow" type="Node2D" parent="Background" unique_id=211647603]
+position = Vector2(817, 235)
+scale = Vector2(1.5200012, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Arrow" unique_id=2031200065]
+position = Vector2(266.29333, 91.77527)
+rotation = 0.23587197
+scale = Vector2(-1.4324132, 0.1430013)
+texture = ExtResource("10_berrb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/Arrow" unique_id=321156227]
+position = Vector2(361.2932, 57.7753)
+rotation = 0.928512
+scale = Vector2(-0.7734224, 0.19868527)
+texture = ExtResource("10_berrb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/Arrow" unique_id=1408975767]
+position = Vector2(334.29333, 154.77536)
+rotation = -0.34579587
+scale = Vector2(-0.7734224, 0.19868527)
+texture = ExtResource("10_berrb")
 
 [node name="PuzzleGroups" type="Node2D" parent="." unique_id=45873681]
 
@@ -187,6 +255,40 @@ position = Vector2(843, 249)
 slot_starting_values = SubResource("Resource_7lupl")
 slot_finish_condition = SubResource("Resource_kk2lb")
 neighbours = [NodePath("../WildlifePlacementSlot3")]
+
+[node name="PuzzleGroup2" type="Node2D" parent="PuzzleGroups" unique_id=1432714610]
+position = Vector2(-7, 3)
+script = ExtResource("5_j00c0")
+
+[node name="WildlifePlacementSlot" parent="PuzzleGroups/PuzzleGroup2" unique_id=1157401462 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
+position = Vector2(2155, 212)
+slot_starting_values = SubResource("Resource_berrb")
+slot_finish_condition = SubResource("Resource_aplna")
+neighbours = [NodePath("../WildlifePlacementSlot2"), NodePath("../WildlifePlacementSlot5")]
+
+[node name="WildlifePlacementSlot2" parent="PuzzleGroups/PuzzleGroup2" unique_id=1080361280 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
+position = Vector2(2469, 381)
+slot_starting_values = SubResource("Resource_rgfws")
+slot_finish_condition = SubResource("Resource_aplna")
+neighbours = [NodePath("../WildlifePlacementSlot"), NodePath("../WildlifePlacementSlot3")]
+
+[node name="WildlifePlacementSlot3" parent="PuzzleGroups/PuzzleGroup2" unique_id=1232282214 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
+position = Vector2(2416, 623)
+slot_starting_values = SubResource("Resource_ie24o")
+slot_finish_condition = SubResource("Resource_aplna")
+neighbours = [NodePath("../WildlifePlacementSlot2"), NodePath("../WildlifePlacementSlot4")]
+
+[node name="WildlifePlacementSlot4" parent="PuzzleGroups/PuzzleGroup2" unique_id=495932311 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
+position = Vector2(1992, 620)
+slot_starting_values = SubResource("Resource_n1sas")
+slot_finish_condition = SubResource("Resource_aplna")
+neighbours = [NodePath("../WildlifePlacementSlot3"), NodePath("../WildlifePlacementSlot5")]
+
+[node name="WildlifePlacementSlot5" parent="PuzzleGroups/PuzzleGroup2" unique_id=627028230 node_paths=PackedStringArray("neighbours") instance=ExtResource("3_d1qae")]
+position = Vector2(1904, 378)
+slot_starting_values = SubResource("Resource_ujxky")
+slot_finish_condition = SubResource("Resource_aplna")
+neighbours = [NodePath("../WildlifePlacementSlot4"), NodePath("../WildlifePlacementSlot")]
 
 [node name="Inventory" type="CanvasLayer" parent="." unique_id=614257888]
 unique_name_in_owner = true

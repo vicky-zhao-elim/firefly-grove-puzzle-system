@@ -25,4 +25,4 @@ func add_picked_up_card(card_id : int) -> void:
 func on_puzzle_group_complete(puzzle_group: int) -> void:
 	print("puzzle group " + str(puzzle_group) + " complete")
 	var new_win_scene: Node2D = win_scene.instantiate()
-	add_child(new_win_scene)
+	%Inventory.add_child(new_win_scene)
